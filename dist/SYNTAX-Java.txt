@@ -1,0 +1,145 @@
+Program        = Members [ Statement ]
+
+Modifiers      = { Modifier }
+
+Modifier       = "public"
+               | "protected"
+               | "private"
+               | "static"
+               | "abstract"
+               | "final"
+
+Members        = { Modifiers Member | ";" }
+
+Member         = Class
+               | Interface
+               | FieldOrMethod
+
+Class          = "class" Label TpParamListSct
+                   [ "extends" ClassBases ] [ "implements" ClassBases ]
+                   ClassBody
+
+Interface      = "interface" Label TpParamListSct
+                   [ "extends" ClassBases ] ClassBody
+
+ClassBases     = ClassBase { "," ClassBase }
+
+ClassBase      = Label TpArgListSct
+
+ClassBody      = "{" Members "}"
+
+FieldOrMethod  = Field
+               | Method
+               | Constructor
+
+Field          = TpTerm Label [ "=" VlTerm ]
+
+Method         = TpParamListSct TpTerm Label VlParamList
+                   MethodBody
+
+MethodBody     = VlBlock
+               | ";"
+
+Constructor    = TpParamListSct Label VlParamList "{"
+                   "super" "(" [ Label { "," Label } ] ")" ";"
+                   { "this" "." Label "=" Label ";" } "}"
+
+Block          = "{" Members Statement "}"
+
+Statement      = "if" "(" VlTerm ")" Statement "else" Statement
+               | "return" VlTerm Terminator
+               | Block
+
+Terminator     = ";" { ";" }
+
+TpParamListSct = [ TpParamList ]
+
+TpParamList    = "<" [ TpParam { "," TpParam } ] ">"
+
+TpParam        = Label TpParamListSct [ "extends" TpTerm ]
+
+VlParamList    = "(" [ VlParam { "," VlParam } ] ")"
+
+VlParam        = TpTerm Label
+
+TpTerm         = "boolean"
+               | "int"
+               | Label TpArgListSct
+               | "(" TpTerm ")"  TpArgListSct
+               | TpParamList "=>" TpTerm
+
+TpArgListSct    = [ TpArgList ]
+
+TpArgList      = "<" [ TpTerm { "," TpTerm } ] ">"
+
+VlTerm         = VlConditional
+
+VlConditional  = VlZOr
+               | VlZOr "?" VlConditional ":" VlConditional
+
+VlZOr          = VlZXor
+               | VlZOr "||" VlZXor
+
+VlZXor         = VlZAnd
+               | VlZXor "^^" VlZAnd
+
+VlZAnd         = VlIOr
+               | VlZAnd "&&" VlIOr
+
+VlIOr          = VlIXor
+               | VlIOr "|" VlIXor
+
+VlIXor         = VlIAnd
+               | VlIXor "^" VlIAnd
+
+VlIAnd         = VlEquality
+               | VlIAnd "&" VlEquality
+
+VlEquality     = VlRelational
+               | VlEquality "==" VlRelational
+               | VlEquality "!=" VlRelational
+
+VlRelational   = VlShift
+               | VlRelational "<" VlShift
+               | VlRelational ">=" VlShift
+               | VlRelational "<=" VlShift
+               | VlRelational ">" VlShift
+
+VlShift        = VlAdditive
+               | VlShift "<<" VlAdditive
+               | VlShift ">>>" VlAdditive
+               | VlShift ">>" VlAdditive
+
+VlAdditive     = VlMultiplicative
+               | VlAdditive "+" VlMultiplicative
+               | VlAdditive "-" VlMultiplicative
+
+VlMultiplicative = VlUnary
+               | VlMultiplicative "*" VlUnary
+               | VlMultiplicative "/" VlUnary
+               | VlMultiplicative "%" VlUnary
+
+VlUnary        = VlPrimary
+               | "+" VlUnary
+               | "-" VlUnary
+               | "~" VlUnary
+               | "!" VlUnary
+
+VlPrimary      = VlSimple { "." VlRef }
+
+VlSimple       = INTEGER
+               | "this"
+               | VlRef
+               | VlNew
+               | "(" VlTerm ")"
+
+VlRef          = TpArgListSct Label VlArgListSct
+
+VlNew          = "new" Label TpArgListSct VlArgList [ ClassBody ]
+
+VlArgListSct   = [ VlArgList ]
+
+VlArgList      = "(" [ VlTerm { "," VlTerm } ] ")"
+
+Label          = IDENTIFIER
+

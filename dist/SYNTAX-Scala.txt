@@ -1,0 +1,132 @@
+Program        = Members [ VlTerm ]
+
+Members        = { Member }
+
+Member         = Class
+               | Field
+               | Method
+               | ";"
+
+Class          = "class" Label TpParamListSct ClassBaseSct
+                   ClassBodySct
+
+Field          = "val" Label SlotTypeSct SlotBodySct
+
+Method         = "def" Label TpParamListSct VlParamListSct
+                   SlotTypeSct SlotBodySct
+
+ClassBaseSct   = [ ClassBase ]
+
+ClassBodySct   = [ ClassBody ]
+
+ClassBase      = "extends" Label TpArgListSct
+
+ClassBody      = "{" Members "}"
+
+SlotBoundSct   = [ SlotBound ]
+
+SlotTypeSct    = [ SlotType ]
+
+SlotBodySct    = [ SlotBody ]
+
+SlotBound      = "<:" TpTerm
+
+SlotType       = ":" TpTerm
+
+SlotBody       = "=" VlTerm
+
+TpParamListSct = [ TpParamList ]
+
+VlParamListSct = [ VlParamList ]
+
+TpParamList    = "[" [ TpParam { "," TpParam } ] "]"
+
+VlParamList    = "(" [ VlParam { "," VlParam } ] ")"
+
+TpParam        = Label TpParamListSct SlotBoundSct
+
+VlParam        = Label SlotTypeSct
+
+TpArgListSct    = [ TpArgList ]
+
+VlArgListSct   = [ VlArgList ]
+
+TpArgList      = "[" [ TpTerm { "," TpTerm } ] "]"
+
+VlArgList      = "(" [ VlTerm { "," VlTerm } ] ")"
+
+TpTerm         = TpParamList "=>" TpTerm
+               | Label { TpSelector } { TpArgList }
+               | "(" TpTerm ")" { TpArgList }
+
+VlTerm         = "if" "(" VlTerm ")" VlTerm "else" VlTerm
+               | VlConditional
+
+VlConditional  = VlZOr
+               | VlZOr "?" VlConditional ":" VlConditional
+
+VlZOr          = VlZXor
+               | VlZOr "||" VlZXor
+
+VlZXor         = VlZAnd
+               | VlZXor "^^" VlZAnd
+
+VlZAnd         = VlIOr
+               | VlZAnd "&&" VlIOr
+
+VlIOr          = VlIXor
+               | VlIOr "|" VlIXor
+
+VlIXor         = VlIAnd
+               | VlIXor "^" VlIAnd
+
+VlIAnd         = VlEquality
+               | VlIAnd "&" VlEquality
+
+VlEquality     = VlRelational
+               | VlEquality "==" VlRelational
+               | VlEquality "!=" VlRelational
+
+VlRelational   = VlShift
+               | VlRelational "<" VlShift
+               | VlRelational ">=" VlShift
+               | VlRelational "<=" VlShift
+               | VlRelational ">" VlShift
+
+VlShift        = VlAdditive
+               | VlShift "<<" VlAdditive
+               | VlShift ">>>" VlAdditive
+               | VlShift ">>" VlAdditive
+
+VlAdditive     = VlMultiplicative
+               | VlAdditive "+" VlMultiplicative
+               | VlAdditive "-" VlMultiplicative
+
+VlMultiplicative = VlUnary
+               | VlMultiplicative "*" VlUnary
+               | VlMultiplicative "/" VlUnary
+               | VlMultiplicative "%" VlUnary
+
+VlUnary        = VlPrimary
+               | "+" VlUnary
+               | "-" VlUnary
+               | "~" VlUnary
+               | "!" VlUnary
+
+VlPrimary      = VlSimple { VlSelector }
+
+VlSimple       = INTEGER
+               | "this"
+               | "new" Label TpArgListSct VlArgListSct ClassBodySct
+               | VlRef
+               | "{" Members VlTerm "}"
+               | "(" VlTerm ")"
+
+TpSelector     = "." Label
+
+VlSelector     = "." VlRef
+
+VlRef          = Label TpArgListSct VlArgListSct
+
+Label          = IDENTIFIER
+
