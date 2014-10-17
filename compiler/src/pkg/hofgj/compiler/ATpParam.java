@@ -1,9 +1,14 @@
 /*    */ package pkg.hofgj.compiler;
 /*    */ 
 /*    */ import pkg.hofgj.Source;
-/*    */ 
+import pkg.hofgj.Util;
+
+import static pkg.hofgj.Util.$assertionsDisabled;
+
+/*    */
 /*    */ public class ATpParam extends ASymbol
 /*    */ {
+//           public static boolean $assertionsDisabled = false;
 /*  7 */   public static boolean DEBUG = true;
 /*    */   private ATpParam[] params;
 /*    */   private ATpTerm bound;

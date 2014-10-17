@@ -50,19 +50,21 @@
 /* 58 */       System.out.println("//############################################################################");
 /*    */ 
 /* 60 */       System.out.println(localCompiler.toString(localCompiler.getAllClasses()));
-/* 61 */       for (localObject1 = localArrayList.iterator(); ((Iterator)localObject1).hasNext(); ) { localObject2 = (Source)((Iterator)localObject1).next();
+/* 61 */       for (Iterator localObject1 = localArrayList.iterator(); ((Iterator)localObject1).hasNext(); ) {
+                 localObject2 = (Source)((Iterator)localObject1).next();
 /* 62 */         if (!((Source)localObject2).getMain().isEmpty()) {
 /* 63 */           System.out.println("// " + ((Source)localObject2).getName());
 /* 64 */           System.out.println(localCompiler.toString((AVlTerm)((Source)localObject2).getMain().get()));
 /* 65 */           System.out.println();
-/*    */         } }
+/*    */         }
+                }
 /* 67 */       System.out.println("//############################################################################");
 /*    */ 
 /* 69 */       System.out.println();
 /*    */     }
 /*    */ 
 /* 72 */     if (i == 0) {
-/* 73 */       localObject1 = new Interpreter(localCompiler);
+/* 73 */       Interpreter localObject1 = new Interpreter(localCompiler);
 /* 74 */       for (localObject2 = localArrayList.iterator(); ((Iterator)localObject2).hasNext(); ) { Source localSource = (Source)((Iterator)localObject2).next();
 /* 75 */         if (!localSource.getMain().isEmpty()) {
 /* 76 */           System.out.println("// " + localSource.getName());

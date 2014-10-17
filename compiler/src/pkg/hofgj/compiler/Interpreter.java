@@ -39,7 +39,9 @@
 /*     */   }
 /*     */ 
 /*     */   private Value evaluate(AVlTerm paramAVlTerm) {
-/*  53 */     switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) { case 1:
+/*  53 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) {
+              switch (paramAVlTerm.getKind().ordinal()) {
+              case 1:
 /*  54 */       return evaluate((AVlTerm.Boolean)paramAVlTerm);
 /*     */     case 2:
 /*  55 */       return evaluate((AVlTerm.Integer)paramAVlTerm);
@@ -131,7 +133,9 @@
 /*     */ 
 /*     */   private Value evaluate(AVlTerm.Unary paramUnary)
 /*     */   {
-/* 140 */     switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnary.operator.ordinal()]) { case 1:
+/* 140 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnary.operator.ordinal()]) {
+            switch (paramUnary.operator.ordinal()) {
+              case 1:
 /* 141 */       return mkInteger(toInteger(paramUnary.arg));
 /*     */     case 2:
 /* 142 */       return mkInteger(-toInteger(paramUnary.arg));
@@ -146,7 +150,9 @@
 /*     */   {
 /* 150 */     AVlTerm localAVlTerm1 = paramBinary.argl;
 /* 151 */     AVlTerm localAVlTerm2 = paramBinary.argr;
-/* 152 */     switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinary.operator.ordinal()]) { case 1:
+/* 152 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinary.operator.ordinal()]) {
+            switch (paramBinary.operator.ordinal()) {
+              case 1:
 /* 153 */       return mkInteger(toInteger(localAVlTerm1) + toInteger(localAVlTerm2));
 /*     */     case 2:
 /* 154 */       return mkInteger(toInteger(localAVlTerm1) - toInteger(localAVlTerm2));

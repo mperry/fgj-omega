@@ -4,12 +4,12 @@
 /*     */ {
 /*     */   public static <Prf extends Proof<?>> Result<Prf> success(Prf paramPrf)
 /*     */   {
-/* 735 */     return new Success(paramPrf, null);
+/* 735 */     return new Success(paramPrf);
 /*     */   }
 /*     */ 
 /*     */   public static <Prf extends Proof<?>> Result<Prf> failure(Theorem paramTheorem, Result<?>[] paramArrayOfResult)
 /*     */   {
-/* 740 */     return new Failure(paramTheorem, paramArrayOfResult, null);
+/* 740 */     return new Failure(paramTheorem, paramArrayOfResult);
 /*     */   }
 /*     */ 
 /*     */   public static <Prf extends Proof<?>> Result<Prf> failure(Theorem paramTheorem, Result<?> paramResult)

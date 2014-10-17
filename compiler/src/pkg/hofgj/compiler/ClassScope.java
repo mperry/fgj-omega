@@ -126,7 +126,8 @@
 /*      */ 
 /*      */   public void enter(SMember paramSMember) {
 /* 2727 */     assert (!this.frozen) : this;
-/* 2728 */     switch (1.$SwitchMap$pkg$hofgj$stree$SMember$Kind[paramSMember.getKind().ordinal()]) {
+/* 2728 */     //switch (1.$SwitchMap$pkg$hofgj$stree$SMember$Kind[paramSMember.getKind().ordinal()]) {
+               switch (paramSMember.getKind().ordinal()) {
 /*      */     case 1:
 /* 2730 */       enter(((SMember.Class)paramSMember).clasz);
 /* 2731 */       return;
@@ -152,6 +153,7 @@
 /*      */   public void enter(SField paramSField) {
 /* 2752 */     assert (!this.frozen) : this;
 /* 2753 */     String str = paramSField.name.label;
+               boolean jumpToLabel = false;
 /*      */ 
 /* 2755 */     if (this.fields.containsKey(str)) {
 /* 2756 */       error(paramSField, "a field named '" + str + "' is already defined in class '" + getClasz().getName() + "'");
@@ -159,26 +161,31 @@
 /*      */     else
 /*      */     {
 /* 2760 */       if (!getSuperclass().isEmpty()) {
-/* 2761 */         localObject = ((ClassScope)getSuperclass().get()).lookupField(str);
+/* 2761 */         Option<P2<ClassScope, AField>> localObject = ((ClassScope)getSuperclass().get()).lookupField(str);
 /*      */ 
 /* 2763 */         if (!((Option)localObject).isEmpty()) {
 /* 2764 */           error(paramSField, "a field named '" + str + "' is already inherited from class '" + ((ClassScope)((P2)((Option)localObject).get()).vl0).getClasz().getName() + "'");
-/*      */ 
-/* 2767 */           break label293;
+/*      */
+                     jumpToLabel = true;
+///* 2767 */           break label293;
 /*      */         }
 /*      */       }
-/* 2770 */       Object localObject = new AField(this.context.getSource(), paramSField.position(), str, getClasz());
-/*      */ 
-/* 2772 */       if (paramSField.type.isEmpty()) {
-/* 2773 */         error(paramSField, "field type is missing in definition of field '" + str + "'");
-/*      */ 
-/* 2775 */         ((AField)localObject).setType(this.compiler.getObjectAsTp());
-/*      */       } else {
-/* 2777 */         ((AField)localObject).setType(this.context.toSlotType((ASymbol)localObject, this, (SSlotType)paramSField.type.get()));
-/*      */       }
-/*      */ 
-/* 2780 */       this.fields.put(str, localObject);
+                 if (!jumpToLabel) {
+    /* 2770 */       AField localObject = new AField(this.context.getSource(), paramSField.position(), str, getClasz());
+    /*      */
+    /* 2772 */       if (paramSField.type.isEmpty()) {
+    /* 2773 */         error(paramSField, "field type is missing in definition of field '" + str + "'");
+    /*      */
+    /* 2775 */         ((AField)localObject).setType(this.compiler.getObjectAsTp());
+    /*      */       } else {
+    /* 2777 */         ((AField)localObject).setType(this.context.toSlotType((ASymbol)localObject, this, (SSlotType)paramSField.type.get()));
+    /*      */       }
+    /*      */
+    /* 2780 */       this.fields.put(str, localObject);
+
+                 }
 /*      */     }
+               // label293:
 /* 2782 */     label293: if (!paramSField.body.isEmpty()) error((STree)paramSField.body.get(), "default field initializations are not supported");
 /*      */   }
 /*      */ 
@@ -243,7 +250,7 @@
 /* 2858 */     ClassScope localClassScope = this;
 /*      */     while (true) { MethodScope localMethodScope = (MethodScope)localClassScope.methods.get(paramSLabel.label);
 /* 2860 */       if (localMethodScope != null) {
-/* 2861 */         localObject = new AVlTerm.Call(paramAVlTerm, localMethodScope.getMethod(), paramArrayOfACsTerm, paramArrayOfAVlTerm);
+/* 2861 */         AVlTerm.Call localObject = new AVlTerm.Call(paramAVlTerm, localMethodScope.getMethod(), paramArrayOfACsTerm, paramArrayOfAVlTerm);
 /*      */ 
 /* 2863 */         P2 localP2 = Cloner.cloneMethod(localClassScope.getClasz().getParams(), this.compiler.getClassArgsFrom(localClassScope.getClasz(), paramATpTerm), localMethodScope.getMethod());
 /*      */ 

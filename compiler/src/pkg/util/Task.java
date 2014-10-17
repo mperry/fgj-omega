@@ -2,8 +2,12 @@
 /*    */ 
 /*    */ public abstract class Task<Type>
 /*    */ {
-/*    */   private final Promise<Type> promise;
-/*    */ 
+/*    */   protected Promise<Type> promise;
+/*    */
+           public Task(Promise<Type> p) {
+               promise = p;
+           }
+
 /*    */   public Task(TaskManager paramTaskManager)
 /*    */   {
 /* 14 */     this.promise = paramTaskManager.delay(this);

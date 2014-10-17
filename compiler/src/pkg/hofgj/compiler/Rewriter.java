@@ -47,7 +47,9 @@
 /*     */ 
 /*     */   public ACsTerm rewrite(ACsTerm paramACsTerm) {
 /*  56 */     assert (frozen());
-/*  57 */     switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) { case 1:
+/*  57 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) {
+              switch (paramACsTerm.getKind().ordinal()) {
+              case 1:
 /*  58 */       return rewrite((ACsTerm.Function)paramACsTerm);
 /*     */     case 2:
 /*  59 */       return rewrite((ACsTerm.Error)paramACsTerm);
@@ -93,7 +95,9 @@
 /*     */ 
 /*     */   public ATpTerm rewrite(ATpTerm paramATpTerm) {
 /* 102 */     assert (frozen());
-/* 103 */     switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) { case 1:
+/* 103 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) {
+              switch (((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()) {
+              case 1:
 /* 104 */       return rewrite((ATpTerm.Boolean)paramATpTerm);
 /*     */     case 2:
 /* 105 */       return rewrite((ATpTerm.Integer)paramATpTerm);
@@ -160,7 +164,9 @@
 /*     */ 
 /*     */   public AVlTerm rewrite(AVlTerm paramAVlTerm) {
 /* 167 */     assert (frozen());
-/* 168 */     switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) { case 1:
+/* 168 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) {
+              switch (paramAVlTerm.getKind().ordinal()) {
+              case 1:
 /* 169 */       return rewrite((AVlTerm.Boolean)paramAVlTerm);
 /*     */     case 2:
 /* 170 */       return rewrite((AVlTerm.Integer)paramAVlTerm);

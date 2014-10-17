@@ -4,7 +4,7 @@
 /*     */ import pkg.util.Union;
 /*     */ 
 /*     */ public abstract class ATpTerm extends ATree
-/*     */   implements Union<ATpTerm, Kind>
+/*     */   implements Union<ATpTerm, ATpTerm.Kind>
 /*     */ {
 /*     */   public abstract boolean isError();
 /*     */ 

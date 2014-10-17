@@ -19,7 +19,7 @@
 /*    */   {
 /* 27 */     int i = 0; for (int j = this.min; i < j; i++)
 /* 28 */       if (!this.parser.parse(paramScanner, paramBoolean)) return false;
-/* 29 */     i = this.min; for (j = this.max; i < j; i++) {
+/* 29 */     i = this.min; for (int j = this.max; i < j; i++) {
 /* 30 */       int k = paramScanner.saveState();
 /* 31 */       if (this.parser.parse(paramScanner, paramBoolean)) {
 /* 32 */         paramScanner.dropState(k);

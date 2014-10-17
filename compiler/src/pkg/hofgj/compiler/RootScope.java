@@ -28,7 +28,8 @@
 /*      */ 
 /*      */   public void enter(SMember paramSMember)
 /*      */   {
-/* 2469 */     switch (1.$SwitchMap$pkg$hofgj$stree$SMember$Kind[paramSMember.getKind().ordinal()]) {
+/* 2469 */     //switch (1.$SwitchMap$pkg$hofgj$stree$SMember$Kind[paramSMember.getKind().ordinal()]) {
+               switch (paramSMember.getKind().ordinal()) {
 /*      */     case 1:
 /* 2471 */       enter(((SMember.Class)paramSMember).clasz);
 /* 2472 */       return;

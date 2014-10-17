@@ -39,7 +39,7 @@
 /*     */ import pkg.hofgj.stree.SVlTerm.If;
 /*     */ import pkg.hofgj.stree.SVlTerm.Integer;
 /*     */ import pkg.hofgj.stree.SVlTerm.New;
-/*     */ import pkg.hofgj.stree.SVlTerm.Ref;
+/*     */ //import pkg.hofgj.stree.SVlTerm.Ref;
 /*     */ import pkg.hofgj.stree.SVlTerm.Sel;
 /*     */ import pkg.hofgj.stree.SVlTerm.This;
 /*     */ import pkg.hofgj.stree.SVlTerm.Unary;
@@ -84,7 +84,7 @@
 /*     */   public SMember[] parseMembers()
 /*     */   {
 /* 101 */     ArrayList localArrayList = new ArrayList();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 103 */       switch (token()) {
 /*     */       case 20:
 /* 105 */         localArrayList.add(set(position(), new SMember.Class(parseClass())));
@@ -98,7 +98,7 @@
 /*     */       case 61:
 /* 114 */         skip();
 /*     */       }
-/*     */     }
+///*     */     }
 /* 117 */     return (SMember[])localArrayList.toArray(new SMember[localArrayList.size()]);
 /*     */   }
 /*     */ 
@@ -301,92 +301,92 @@
 /*     */   public SVlTerm parseVlZOr()
 /*     */   {
 /* 440 */     SVlTerm localSVlTerm = parseVlZXor();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 442 */       switch (token()) {
 /*     */       case 89:
 /* 444 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlZXor());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 447 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlZXor()
 /*     */   {
 /* 457 */     SVlTerm localSVlTerm = parseVlZAnd();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 459 */       switch (token()) {
 /*     */       case 90:
 /* 461 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlZAnd());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 464 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlZAnd()
 /*     */   {
 /* 474 */     SVlTerm localSVlTerm = parseVlIOr();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 476 */       switch (token()) {
 /*     */       case 91:
 /* 478 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlIOr());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 481 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlIOr()
 /*     */   {
 /* 491 */     SVlTerm localSVlTerm = parseVlIXor();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 493 */       switch (token()) {
 /*     */       case 86:
 /* 495 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlIXor());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 498 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlIXor()
 /*     */   {
 /* 508 */     SVlTerm localSVlTerm = parseVlIAnd();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 510 */       switch (token()) {
 /*     */       case 87:
 /* 512 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlIAnd());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 515 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlIAnd()
 /*     */   {
 /* 525 */     SVlTerm localSVlTerm = parseVlEquality();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 527 */       switch (token()) {
 /*     */       case 88:
 /* 529 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlEquality());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 532 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlEquality()
 /*     */   {
 /* 543 */     SVlTerm localSVlTerm = parseVlRelational();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 545 */       switch (token()) {
 /*     */       case 84:
 /*     */       case 85:
 /* 548 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlRelational());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 551 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlRelational()
 /*     */   {
 /* 564 */     SVlTerm localSVlTerm = parseVlShift();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 566 */       switch (token()) {
 /*     */       case 80:
 /*     */       case 81:
@@ -394,48 +394,48 @@
 /*     */       case 83:
 /* 571 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlShift());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 574 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlShift()
 /*     */   {
 /* 586 */     SVlTerm localSVlTerm = parseVlAdditive();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 588 */       switch (token()) {
 /*     */       case 77:
 /*     */       case 78:
 /*     */       case 79:
 /* 592 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlAdditive());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 595 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlAdditive()
 /*     */   {
 /* 606 */     SVlTerm localSVlTerm = parseVlMultiplicative();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 608 */       switch (token()) {
 /*     */       case 72:
 /*     */       case 73:
 /* 611 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlMultiplicative());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 614 */     return localSVlTerm;
 /*     */   }
 /*     */ 
 /*     */   public SVlTerm parseVlMultiplicative()
 /*     */   {
 /* 626 */     SVlTerm localSVlTerm = parseVlUnary();
-/*     */     while (true) {
+///*     */     while (true) {
 /* 628 */       switch (token()) {
 /*     */       case 74:
 /*     */       case 75:
 /*     */       case 76:
 /* 632 */         localSVlTerm = mkBinary(token(), skip(), localSVlTerm, parseVlUnary());
 /*     */       }
-/*     */     }
+///*     */     }
 /* 635 */     return localSVlTerm;
 /*     */   }
 /*     */ 
@@ -507,7 +507,7 @@
 /* 744 */     String str = string();
 /* 745 */     skip(11);
 /*     */     try {
-/* 747 */       return Integer.parseInt(str);
+/* 747 */       return java.lang.Integer.parseInt(str);
 /*     */     } catch (NumberFormatException localNumberFormatException) {
 /* 749 */       this.source.error(i, "integer constant '" + str + "' is too big");
 /*     */     }

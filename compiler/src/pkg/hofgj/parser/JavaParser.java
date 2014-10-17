@@ -46,11 +46,11 @@
 /*      */ import pkg.hofgj.stree.SVlTerm.Binary;
 /*      */ import pkg.hofgj.stree.SVlTerm.BinaryOperator;
 /*      */ import pkg.hofgj.stree.SVlTerm.Block;
-/*      */ import pkg.hofgj.stree.SVlTerm.Boolean;
+/*      */ //import pkg.hofgj.stree.SVlTerm.Boolean;
 /*      */ import pkg.hofgj.stree.SVlTerm.If;
-/*      */ import pkg.hofgj.stree.SVlTerm.Integer;
+/*      */ //import pkg.hofgj.stree.SVlTerm.Integer;
 /*      */ import pkg.hofgj.stree.SVlTerm.New;
-/*      */ import pkg.hofgj.stree.SVlTerm.Ref;
+/*      */ //import pkg.hofgj.stree.SVlTerm.Ref;
 /*      */ import pkg.hofgj.stree.SVlTerm.Sel;
 /*      */ import pkg.hofgj.stree.SVlTerm.This;
 /*      */ import pkg.hofgj.stree.SVlTerm.Unary;
@@ -99,7 +99,7 @@
 /*      */   public SModifier[] parseModifiers()
 /*      */   {
 /*  106 */     ArrayList localArrayList = new ArrayList();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  108 */       switch (token()) {
 /*      */       case 33:
 /*  110 */         localArrayList.add(mkIsPublic(skip()));
@@ -119,14 +119,14 @@
 /*      */       case 38:
 /*  125 */         localArrayList.add(mkIsFinal(skip()));
 /*      */       }
-/*      */     }
+///*      */     }
 /*  128 */     return mkModifierArray(localArrayList);
 /*      */   }
 /*      */ 
 /*      */   public SMember[] parseMembers()
 /*      */   {
 /*  137 */     ArrayList localArrayList = new ArrayList();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  139 */       switch (token()) {
 /*      */       case 33:
 /*      */       case 34:
@@ -149,7 +149,7 @@
 /*      */       case 80:
 /*  158 */         localArrayList.add(parseMember(mkModifierArray(0)));
 /*      */       }
-/*      */     }
+///*      */     }
 /*  161 */     return mkMemberArray(localArrayList);
 /*      */   }
 /*      */ 
@@ -430,92 +430,92 @@
 /*      */   public SVlTerm parseVlZOr()
 /*      */   {
 /*  579 */     SVlTerm localSVlTerm = parseVlZXor();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  581 */       switch (token()) {
 /*      */       case 89:
 /*  583 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlZXor());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  586 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlZXor()
 /*      */   {
 /*  596 */     SVlTerm localSVlTerm = parseVlZAnd();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  598 */       switch (token()) {
 /*      */       case 90:
 /*  600 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlZAnd());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  603 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlZAnd()
 /*      */   {
 /*  613 */     SVlTerm localSVlTerm = parseVlIOr();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  615 */       switch (token()) {
 /*      */       case 91:
 /*  617 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlIOr());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  620 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlIOr()
 /*      */   {
 /*  630 */     SVlTerm localSVlTerm = parseVlIXor();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  632 */       switch (token()) {
 /*      */       case 86:
 /*  634 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlIXor());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  637 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlIXor()
 /*      */   {
 /*  647 */     SVlTerm localSVlTerm = parseVlIAnd();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  649 */       switch (token()) {
 /*      */       case 87:
 /*  651 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlIAnd());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  654 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlIAnd()
 /*      */   {
 /*  664 */     SVlTerm localSVlTerm = parseVlEquality();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  666 */       switch (token()) {
 /*      */       case 88:
 /*  668 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlEquality());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  671 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlEquality()
 /*      */   {
 /*  682 */     SVlTerm localSVlTerm = parseVlRelational();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  684 */       switch (token()) {
 /*      */       case 84:
 /*      */       case 85:
 /*  687 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlRelational());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  690 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlRelational()
 /*      */   {
 /*  703 */     SVlTerm localSVlTerm = parseVlShift();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  705 */       switch (token()) {
 /*      */       case 80:
 /*      */       case 81:
@@ -523,48 +523,48 @@
 /*      */       case 83:
 /*  710 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlShift());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  713 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlShift()
 /*      */   {
 /*  725 */     SVlTerm localSVlTerm = parseVlAdditive();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  727 */       switch (token()) {
 /*      */       case 77:
 /*      */       case 78:
 /*      */       case 79:
 /*  731 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlAdditive());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  734 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlAdditive()
 /*      */   {
 /*  745 */     SVlTerm localSVlTerm = parseVlMultiplicative();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  747 */       switch (token()) {
 /*      */       case 72:
 /*      */       case 73:
 /*  750 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlMultiplicative());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  753 */     return localSVlTerm;
 /*      */   }
 /*      */ 
 /*      */   public SVlTerm parseVlMultiplicative()
 /*      */   {
 /*  765 */     SVlTerm localSVlTerm = parseVlUnary();
-/*      */     while (true) {
+///*      */     while (true) {
 /*  767 */       switch (token()) {
 /*      */       case 74:
 /*      */       case 75:
 /*      */       case 76:
 /*  771 */         localSVlTerm = mkVlBinary(token(), skip(), localSVlTerm, parseVlUnary());
 /*      */       }
-/*      */     }
+///*      */     }
 /*  774 */     return localSVlTerm;
 /*      */   }
 /*      */ 
@@ -661,7 +661,7 @@
 /*  913 */     String str = string();
 /*  914 */     skip(11);
 /*      */     try {
-/*  916 */       return Integer.parseInt(str);
+/*  916 */       return java.lang.Integer.parseInt(str);
 /*      */     } catch (NumberFormatException localNumberFormatException) {
 /*  918 */       this.source.error(i, "integer constant '" + str + "' is too big");
 /*      */     }

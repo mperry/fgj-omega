@@ -1,5 +1,10 @@
 /*     */ package pkg.hofgj.parser;
-/*     */ 
+
+import pkg.hofgj.Util;
+
+import static pkg.hofgj.Util.$assertionsDisabled;
+
+/*     */
 /*     */ public abstract class Tokens
 /*     */ {
 /*     */   public static final int EOF = 1;

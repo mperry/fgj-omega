@@ -218,7 +218,7 @@
 /* 246 */     assert ((this.queue_count > 0) && (this.queue_start < this.queue_end));
 /* 247 */     assert (this.queue_kinds[this.queue_start] == 1);
 /*     */ 
-/* 249 */     Object localObject = this.queue_values_o[this.queue_start];
+/* 249 */     Type localObject = (Type) this.queue_values_o[this.queue_start];
 /* 250 */     dropValue();
 /* 251 */     return localObject;
 /*     */   }

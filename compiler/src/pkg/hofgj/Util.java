@@ -10,6 +10,8 @@
 /*    */   public static String toString(int paramInt, String paramString1, String paramString2) {
 /* 13 */     return paramInt + " " + (paramInt == 1 ? paramString1 : paramString2);
 /*    */   }
+
+            public static boolean $assertionsDisabled = false;
 /*    */ }
 
 /* Location:           /Users/mperry/Downloads/hofgj-compiler-20080524/lib/hofgj.jar

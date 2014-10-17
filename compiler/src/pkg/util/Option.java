@@ -3,13 +3,15 @@
 /*     */ import pkg.debug.Debug;
 /*     */ 
 /*     */ public abstract class Option<Type>
-/*     */   implements Union<Option<Type>, Kind>
+/*     */   implements Union<Option<Type>, Option.Kind>
 /*     */ {
 /*     */   public static <X> Function1<X, Option<X>> Some()
 /*     */   {
-/*  11 */     return new Function1() {
+/*  11 */     return new Function1<X, Option<X>>() {
+                @Override
 /*  12 */       public Option<X> apply(X paramAnonymousX) { return Option.Some(paramAnonymousX); }
-/*     */ 
+
+/*     */
 /*     */     };
 /*     */   }
 /*     */ 
@@ -33,11 +35,11 @@
 /*     */   }
 /*     */ 
 /*     */   public static <Type> None<Type> None() {
-/*  40 */     return new None(null);
+/*  40 */     return new None<Type>();
 /*     */   }
 /*     */ 
 /*     */   public static <Type> Some<Type> Some(Type paramType) {
-/*  44 */     return new Some(paramType, null);
+/*  44 */     return new Some<Type>(paramType);
 /*     */   }
 /*     */ 
 /*     */   public static <Type> boolean areEqual(Option<Type> paramOption1, Option<Type> paramOption2)
@@ -48,7 +50,8 @@
 /*  54 */     Kind localKind1 = (Kind)paramOption1.getKind();
 /*  55 */     Kind localKind2 = (Kind)paramOption2.getKind();
 /*  56 */     if (localKind1 != localKind2) return false;
-/*  57 */     switch (2.$SwitchMap$pkg$util$Option$Kind[localKind1.ordinal()]) {
+/*  57 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[localKind1.ordinal()]) {
+              switch (localKind1.ordinal()) {
 /*     */     case 1:
 /*  59 */       return true;
 /*     */     case 2:
@@ -59,7 +62,9 @@
 /*     */ 
 /*     */   public final boolean isEmpty()
 /*     */   {
-/*  76 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/*  76 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /*  77 */       return true;
 /*     */     case 2:
 /*  78 */       return false; }
@@ -68,10 +73,12 @@
 /*     */ 
 /*     */   public final Type value()
 /*     */   {
-/*  84 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/*  84 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /*  85 */       throw Debug.illegal(this, "value", new Object[0]);
 /*     */     case 2:
-/*  86 */       return ((Some)this).value; }
+/*  86 */       return ((Some<Type>)this).value; }
 /*  87 */     throw Debug.unexpected(this);
 /*     */   }
 /*     */ 
@@ -81,7 +88,9 @@
 /*     */   }
 /*     */ 
 /*     */   public final int size() {
-/*  96 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/*  96 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /*  97 */       return 0;
 /*     */     case 2:
 /*  98 */       return 1; }
@@ -90,7 +99,9 @@
 /*     */ 
 /*     */   public final Type get()
 /*     */   {
-/* 104 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/* 104 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /* 105 */       throw Debug.illegal(this, "get", new Object[0]);
 /*     */     case 2:
 /* 106 */       return value(); }
@@ -99,7 +110,9 @@
 /*     */ 
 /*     */   public final Type get(Type paramType)
 /*     */   {
-/* 112 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/* 112 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /* 113 */       return paramType;
 /*     */     case 2:
 /* 114 */       return value(); }
@@ -108,7 +121,9 @@
 /*     */ 
 /*     */   public final Type[] toArray(Type[] paramArrayOfType)
 /*     */   {
-/* 120 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/* 120 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /* 121 */       return paramArrayOfType;
 /*     */     case 2:
 /* 122 */       paramArrayOfType[0] = value(); return paramArrayOfType; }
@@ -126,7 +141,9 @@
 /*     */   }
 /*     */ 
 /*     */   public final String toString() {
-/* 137 */     switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) { case 1:
+/* 137 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
+              switch (((Kind)getKind()).ordinal()) {
+              case 1:
 /* 138 */       return "Option()";
 /*     */     case 2:
 /* 139 */       return "Option(" + value() + ")"; }

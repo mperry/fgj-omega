@@ -39,15 +39,16 @@
 /*    */   public String toString() {
 /* 46 */     StringBuilder localStringBuilder = new StringBuilder();
 /* 47 */     localStringBuilder.append("current tasks:\n");
-/* 48 */     for (Iterator localIterator = this.current.iterator(); localIterator.hasNext(); ) { localTask = (Task)localIterator.next();
+/* 48 */     for (Iterator<Task<?>> localIterator = this.current.iterator(); localIterator.hasNext(); ) {
+               Task localTask = (Task)localIterator.next();
 /* 49 */       localStringBuilder.append("  ").append(localTask).append("\n");
 /*    */     }
 /* 51 */     Task localTask;
 /* 50 */     localStringBuilder.append("delayed tasks:\n");
-/* 51 */     for (localIterator = this.delayed.iterator(); localIterator.hasNext(); ) { localTask = (Task)localIterator.next();
+/* 51 */     for (Iterator<Task<?>> localIterator = this.delayed.iterator(); localIterator.hasNext(); ) { localTask = (Task)localIterator.next();
 /* 52 */       localStringBuilder.append("  ").append(localTask).append("\n"); }
 /* 53 */     localStringBuilder.append("terminated tasks:\n");
-/* 54 */     for (localIterator = this.terminated.iterator(); localIterator.hasNext(); ) { localTask = (Task)localIterator.next();
+/* 54 */     for (Iterator<Task<?>> localIterator = this.terminated.iterator(); localIterator.hasNext(); ) { localTask = (Task)localIterator.next();
 /* 55 */       localStringBuilder.append("  ").append(localTask).append("\n"); }
 /* 56 */     return localStringBuilder.toString();
 /*    */   }
@@ -78,11 +79,16 @@
 /*    */     public TaskThunk()
 /*    */     {
 /*    */       Object localObject;
-/* 86 */       this.task = localObject;
+/* 86 */       this.task = null;
 /*    */     }
-/*    */     public Type evaluate() {
+
+            public TaskThunk(Task<Type> paramTask) {
+                task = paramTask;
+            }
+
+    /*    */     public Type evaluate() {
 /* 89 */       TaskManager.this.start(this.task);
-/* 90 */       Object localObject = this.task.getThunk().evaluate();
+/* 90 */       Type localObject = this.task.getThunk().evaluate();
 /* 91 */       TaskManager.this.stop(this.task);
 /* 92 */       return localObject;
 /*    */     }

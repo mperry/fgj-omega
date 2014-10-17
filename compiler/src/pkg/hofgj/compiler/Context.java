@@ -30,9 +30,9 @@
 /*      */ import pkg.hofgj.stree.SVlTerm.Boolean;
 /*      */ import pkg.hofgj.stree.SVlTerm.If;
 /*      */ import pkg.hofgj.stree.SVlTerm.Integer;
-/*      */ import pkg.hofgj.stree.SVlTerm.Kind;
+/*      */ //import pkg.hofgj.stree.SVlTerm.Kind;
 /*      */ import pkg.hofgj.stree.SVlTerm.New;
-/*      */ import pkg.hofgj.stree.SVlTerm.Ref;
+/*      */ //import pkg.hofgj.stree.SVlTerm.Ref;
 /*      */ import pkg.hofgj.stree.SVlTerm.Sel;
 /*      */ import pkg.hofgj.stree.SVlTerm.This;
 /*      */ import pkg.hofgj.stree.SVlTerm.Unary;
@@ -121,7 +121,8 @@
 /*      */   public ATpTerm compileSlotBound(Scope paramScope, SSlotBound paramSSlotBound)
 /*      */   {
 /*  676 */     ATpTerm localATpTerm = compileTpTermToTp(paramScope, paramSSlotBound.bound);
-/*  677 */     switch (9.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)localATpTerm.getKind()).ordinal()]) {
+/*  677 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)localATpTerm.getKind()).ordinal()]) {
+               switch (((ATpTerm.Kind)localATpTerm.getKind()).ordinal()) {
 /*      */     case 1:
 /*  679 */       return localATpTerm;
 /*      */     case 2:
@@ -161,7 +162,8 @@
 /*      */   public ACsTerm compileTpTermToCs(Scope paramScope, STpTerm paramSTpTerm) {
 /*  718 */     FTpTerm localFTpTerm = compileTpTerm(paramScope, paramSTpTerm);
 /*      */     Object localObject;
-/*  719 */     switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
+/*  719 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
+               switch (localFTpTerm.getKind().ordinal()) {
 /*      */     case 1:
 /*  721 */       localObject = (FTpTerm.Concrete)localFTpTerm;
 /*  722 */       return Freezer.instance.rewrite(Cloner.cloneToCs(((FTpTerm.Concrete)localObject).clasz));
@@ -184,7 +186,8 @@
 /*  742 */     FTpTerm localFTpTerm = compileTpTerm(paramScope, paramSTpTerm);
 /*      */     Object localObject;
 /*      */     int i;
-/*  743 */     switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
+/*  743 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
+               switch (localFTpTerm.getKind().ordinal()) {
 /*      */     case 1:
 /*  745 */       localObject = (FTpTerm.Concrete)localFTpTerm;
 /*  746 */       i = ((FTpTerm.Concrete)localObject).clasz.getParams().length;
@@ -230,7 +233,9 @@
 /*      */ 
 /*      */   public FTpTerm compileTpTerm(Scope paramScope, STpTerm paramSTpTerm)
 /*      */   {
-/*  800 */     switch (9.$SwitchMap$pkg$hofgj$stree$STpTerm$Kind[paramSTpTerm.getKind().ordinal()]) { case 1:
+/*  800 */     //switch (9.$SwitchMap$pkg$hofgj$stree$STpTerm$Kind[paramSTpTerm.getKind().ordinal()]) {
+               switch (paramSTpTerm.getKind().ordinal()) {
+               case 1:
 /*  801 */       return new FTpTerm.Tp(new ATpTerm.Boolean());
 /*      */     case 2:
 /*  802 */       return new FTpTerm.Tp(new ATpTerm.Integer());
@@ -263,7 +268,8 @@
 /*  826 */     FTpTerm localFTpTerm = compileTpTerm(paramScope, paramApp.fun);
 /*      */     Object localObject1;
 /*      */     Object localObject2;
-/*  827 */     switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
+/*  827 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
+               switch (localFTpTerm.getKind().ordinal()) {
 /*      */     case 1:
 /*  829 */       localObject1 = (FTpTerm.Concrete)localFTpTerm;
 /*  830 */       localObject2 = compileTpTermArgs(paramScope, ((FTpTerm.Concrete)localObject1).clasz.getParams(), paramApp.args);
@@ -276,7 +282,7 @@
 /*  838 */       return new FTpTerm.Tp(new ATpTerm.Abstract(((FTpTerm.Abstract)localObject1).param, (ACsTerm[])localObject2));
 /*      */     case 3:
 /*  841 */       localObject1 = (FTpTerm.Cs)localFTpTerm;
-/*  842 */       switch (localObject1.term.getKind()) {
+/*  842 */       switch (((FTpTerm.Cs)localObject1).term.getKind()) {
 /*      */       case FUNCTION:
 /*  844 */         localObject2 = (ACsTerm.Function)((FTpTerm.Cs)localObject1).term;
 /*  845 */         ACsTerm[] arrayOfACsTerm = compileTpTermArgs(paramScope, ((ACsTerm.Function)localObject2).params, paramApp.args);
@@ -319,7 +325,9 @@
 /*      */   }
 /*      */ 
 /*      */   public VlTp compileVlTerm(Scope paramScope, SVlTerm paramSVlTerm) {
-/*  928 */     switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$Kind[paramSVlTerm.getKind().ordinal()]) { case 1:
+/*  928 */     //switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$Kind[paramSVlTerm.getKind().ordinal()]) {
+               switch (paramSVlTerm.getKind().ordinal()) {
+               case 1:
 /*  929 */       return compileVlTerm(paramScope, (SVlTerm.Boolean)paramSVlTerm);
 /*      */     case 2:
 /*  930 */       return compileVlTerm(paramScope, (SVlTerm.Integer)paramSVlTerm);
@@ -460,7 +468,7 @@
 /*      */   public VlTp compileVlRef(Scope paramScope, VlTp paramVlTp, SVlRef paramSVlRef)
 /*      */   {
 /* 1069 */     if ((paramSVlRef.targs.isEmpty()) && (paramSVlRef.vargs.isEmpty())) {
-/* 1070 */       localObject1 = this.compiler.getUpperClass(paramVlTp.tp);
+/* 1070 */       Option<ATpTerm> localObject1 = this.compiler.getUpperClass(paramVlTp.tp);
 /* 1071 */       if (((Option)localObject1).isEmpty()) {
 /* 1072 */         error(paramSVlRef.label, "value of type '" + this.compiler.toString(paramVlTp.tp) + "' has no field named '" + paramSVlRef.label.label + "'");
 /*      */ 
@@ -468,8 +476,8 @@
 /*      */       }
 /* 1077 */       if (((ATpTerm)((Option)localObject1).get()).isError())
 /* 1078 */         return new VlTp(new AVlTerm.Error(), new ATpTerm.Error());
-/* 1079 */       localObject2 = (ATpTerm.Concrete)((Option)localObject1).get();
-/* 1080 */       localObject3 = this.compiler.getClassScope(((ATpTerm.Concrete)localObject2).clasz).lookupFieldLocal(paramSVlRef.label, paramVlTp.vl, (ATpTerm)localObject2);
+/* 1079 */       ATpTerm.Concrete localObject2 = (ATpTerm.Concrete)((Option)localObject1).get();
+/* 1080 */       Option localObject3 = this.compiler.getClassScope(((ATpTerm.Concrete)localObject2).clasz).lookupFieldLocal(paramSVlRef.label, paramVlTp.vl, (ATpTerm)localObject2);
 /*      */ 
 /* 1083 */       if (!((Option)localObject3).isEmpty()) return (VlTp)((Option)localObject3).get();
 /* 1084 */       error(paramSVlRef.label, "value of type '" + this.compiler.toString(paramVlTp.tp) + "' has no field named '" + paramSVlRef.label.label + "'");
@@ -504,7 +512,7 @@
 /*      */ 
 /* 1123 */     if (arrayOfACsTerm == paramArrayOfACsTerm) {
 /* 1124 */       ATpParam[] arrayOfATpParam = (ATpParam[])((P2)((P2)paramOption.get()).vl1).vl0;
-/* 1125 */       SVlTerm[] arrayOfSVlTerm = paramSVlRef.vargs.isEmpty() ? new STree[0] : ((SVlArgList)paramSVlRef.vargs.get()).args;
+/* 1125 */       STree[] arrayOfSVlTerm = paramSVlRef.vargs.isEmpty() ? new STree[0] : ((SVlArgList)paramSVlRef.vargs.get()).args;
 /*      */ 
 /* 1128 */       ATpTerm[] arrayOfATpTerm = new ATpTerm[((ATpTerm[])((P2)((P2)paramOption.get()).vl1).vl1).length - 1];
 /*      */ 
@@ -551,7 +559,9 @@
 /*      */ 
 /*      */   public AVlTerm.UnaryOperator compileOperator(SVlTerm.UnaryOperator paramUnaryOperator)
 /*      */   {
-/* 1182 */     switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) { case 1:
+/* 1182 */     //switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
+               switch (paramUnaryOperator.ordinal()) {
+               case 1:
 /* 1183 */       return AVlTerm.UnaryOperator.IPOS;
 /*      */     case 2:
 /* 1184 */       return AVlTerm.UnaryOperator.INEG;
@@ -564,7 +574,9 @@
 /*      */ 
 /*      */   public ATpTerm getArgType(AVlTerm.UnaryOperator paramUnaryOperator)
 /*      */   {
-/* 1192 */     switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) { case 1:
+/* 1192 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
+               switch (paramUnaryOperator.ordinal()) {
+               case 1:
 /* 1193 */       return new ATpTerm.Integer();
 /*      */     case 2:
 /* 1194 */       return new ATpTerm.Integer();
@@ -577,7 +589,9 @@
 /*      */ 
 /*      */   public ATpTerm getResultType(AVlTerm.UnaryOperator paramUnaryOperator)
 /*      */   {
-/* 1202 */     switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) { case 1:
+/* 1202 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
+               switch (paramUnaryOperator.ordinal()) {
+               case 1:
 /* 1203 */       return new ATpTerm.Integer();
 /*      */     case 2:
 /* 1204 */       return new ATpTerm.Integer();
@@ -590,7 +604,9 @@
 /*      */ 
 /*      */   public AVlTerm.BinaryOperator compileOperator(SVlTerm.BinaryOperator paramBinaryOperator)
 /*      */   {
-/* 1212 */     switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) { case 1:
+/* 1212 */     //switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
+               switch (paramBinaryOperator.ordinal()) {
+               case 1:
 /* 1213 */       return AVlTerm.BinaryOperator.IADD;
 /*      */     case 2:
 /* 1214 */       return AVlTerm.BinaryOperator.ISUB;
@@ -635,7 +651,9 @@
 /*      */ 
 /*      */   public ATpTerm getArgLType(AVlTerm.BinaryOperator paramBinaryOperator)
 /*      */   {
-/* 1238 */     switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) { case 1:
+/* 1238 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
+               switch (paramBinaryOperator.ordinal()) {
+               case 1:
 /* 1239 */       return new ATpTerm.Integer();
 /*      */     case 2:
 /* 1240 */       return new ATpTerm.Integer();
@@ -680,7 +698,9 @@
 /*      */ 
 /*      */   public ATpTerm getArgRType(AVlTerm.BinaryOperator paramBinaryOperator)
 /*      */   {
-/* 1264 */     switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) { case 1:
+/* 1264 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
+               switch (paramBinaryOperator.ordinal()) {
+               case 1:
 /* 1265 */       return new ATpTerm.Integer();
 /*      */     case 2:
 /* 1266 */       return new ATpTerm.Integer();
@@ -725,7 +745,9 @@
 /*      */ 
 /*      */   public ATpTerm getResultType(AVlTerm.BinaryOperator paramBinaryOperator)
 /*      */   {
-/* 1290 */     switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) { case 1:
+/* 1290 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
+               switch (paramBinaryOperator.ordinal()) {
+               case 1:
 /* 1291 */       return new ATpTerm.Integer();
 /*      */     case 2:
 /* 1292 */       return new ATpTerm.Integer();
@@ -985,13 +1007,18 @@
 /* 1594 */     return paramTask.getPromise();
 /*      */   }
 /*      */ 
-/*      */   public abstract class Task<Type> extends Task<Type>
+/*      */   public abstract class Task<Type> extends pkg.util.Task<Type>
 /*      */     implements Thunk<Type>
 /*      */   {
-/*      */     public Task()
-/*      */     {
-/* 1604 */       super();
-/*      */     }
+                public Task(Type t) {
+                    super(Promise.value(t));
+                }
+
+    /*      */     //public Task(Type t)
+/*      */     //{
+                 //promise = Promise.value(t);
+///* 1604 */       super(t);
+/*      */     //}
 /*      */ 
 /*      */     public abstract String getTask();
 /*      */ 

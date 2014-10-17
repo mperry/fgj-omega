@@ -5,7 +5,8 @@
 /*     */ import java.io.PrintStream;
 /*     */ import pkg.hofgj.compiler.AVlTerm;
 /*     */ import pkg.hofgj.parser.JavaParser;
-/*     */ import pkg.hofgj.parser.Parsers;
+/*     */ import pkg.hofgj.parser.Parser;
+import pkg.hofgj.parser.Parsers;
 /*     */ import pkg.hofgj.parser.Tokens;
 /*     */ import pkg.hofgj.stree.SProgram;
 /*     */ import pkg.parse.Scanner;
@@ -91,7 +92,7 @@
 /*     */ 
 /*     */   public Option<SProgram> parseProgram() {
 /* 107 */     if (this.scala) {
-/* 108 */       localObject = new pkg.hofgj.parser.Parser(this, getTokens(), getTokenPositions(), getTokenStrings());
+/* 108 */       Parser localObject = new pkg.hofgj.parser.Parser(this, getTokens(), getTokenPositions(), getTokenStrings());
 /*     */ 
 /* 110 */       return ((pkg.hofgj.parser.Parser)localObject).readProgram();
 /*     */     }
@@ -157,11 +158,11 @@
 /* 173 */     Scanner localScanner = new Scanner(getBytes());
 /* 174 */     Parsers localParsers = new Parsers(this.scala);
 /* 175 */     int i = 0;
-/* 176 */     Object localObject1 = new int[8];
-/* 177 */     Object localObject2 = new int[8];
-/* 178 */     Object localObject3 = new String[8];
+/* 176 */     int[] localObject1 = new int[8];
+/* 177 */     int[] localObject2 = new int[8];
+/* 178 */     String[] localObject3 = new String[8];
 /*     */     while (true) {
-/* 180 */       j = localScanner.lockQueue();
+/* 180 */       int j = localScanner.lockQueue();
 /* 181 */       localParsers.program.parse(localScanner, true);
 /* 182 */       int k = localScanner.getValueI();
 /* 183 */       int m = localScanner.getValueI();
@@ -173,8 +174,8 @@
 /* 189 */         int[] arrayOfInt2 = new int[2 * i];
 /* 190 */         String[] arrayOfString = new String[2 * i];
 /* 191 */         for (int n = 0; n < i; n++) arrayOfInt1[n] = localObject1[n];
-/* 192 */         for (n = 0; n < i; n++) arrayOfInt2[n] = localObject2[n];
-/* 193 */         for (n = 0; n < i; n++) arrayOfString[n] = localObject3[n];
+/* 192 */         for (int n = 0; n < i; n++) arrayOfInt2[n] = localObject2[n];
+/* 193 */         for (int n = 0; n < i; n++) arrayOfString[n] = localObject3[n];
 /* 194 */         localObject1 = arrayOfInt1;
 /* 195 */         localObject2 = arrayOfInt2;
 /* 196 */         localObject3 = arrayOfString;
@@ -189,8 +190,8 @@
 /* 205 */     this.positions = new int[i];
 /* 206 */     this.strings = new String[i];
 /* 207 */     for (int j = 0; j < i; j++) this.tokens[j] = localObject1[j];
-/* 208 */     for (j = 0; j < i; j++) this.positions[j] = localObject2[j];
-/* 209 */     for (j = 0; j < i; j++) this.strings[j] = localObject3[j];
+/* 208 */     for (int j = 0; j < i; j++) this.positions[j] = localObject2[j];
+/* 209 */     for (int j = 0; j < i; j++) this.strings[j] = localObject3[j];
 /*     */   }
 /*     */ }
 

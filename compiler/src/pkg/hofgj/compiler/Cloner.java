@@ -30,16 +30,16 @@
 /*  35 */     Cloner localCloner = new Cloner();
 /*  36 */     assert (localCloner.tparams.isEmpty()) : localCloner.tparams;
 /*  37 */     localCloner.insert(paramArrayOfATpParam, paramArrayOfACsTerm);
-/*  38 */     ATpParam[][] arrayOfATpParam; = new ATpParam[paramArrayOfATpParam.length][];
+/*  38 */     ATpParam[][] arrayOfATpParam = new ATpParam[paramArrayOfATpParam.length][];
 /*  39 */     ATpTerm[] arrayOfATpTerm = new ATpTerm[paramArrayOfATpParam.length];
 /*  40 */     for (int i = 0; i < paramArrayOfATpParam.length; i++) {
-/*  41 */       arrayOfATpParam;[i] = localCloner.clone(paramArrayOfATpParam[i].getParams());
+/*  41 */       arrayOfATpParam[i] = localCloner.clone(paramArrayOfATpParam[i].getParams());
 /*  42 */       arrayOfATpTerm[i] = localCloner.rewrite(paramArrayOfATpParam[i].getBound());
 /*  43 */       localCloner.remove(paramArrayOfATpParam[i].getParams());
 /*     */     }
 /*  45 */     localCloner.remove(paramArrayOfATpParam);
 /*  46 */     assert (localCloner.tparams.isEmpty()) : localCloner.tparams;
-/*  47 */     return P2.mk(arrayOfATpParam;, arrayOfATpTerm);
+/*  47 */     return P2.mk(arrayOfATpParam, arrayOfATpTerm);
 /*     */   }
 /*     */ 
 /*     */   public static ATpParam[][] cloneTpParams0(ATpParam[] paramArrayOfATpParam, ACsTerm[] paramArrayOfACsTerm)
@@ -47,14 +47,14 @@
 /*  54 */     Cloner localCloner = new Cloner();
 /*  55 */     assert (localCloner.tparams.isEmpty()) : localCloner.tparams;
 /*  56 */     localCloner.insert(paramArrayOfATpParam, paramArrayOfACsTerm);
-/*  57 */     ATpParam[][] arrayOfATpParam; = new ATpParam[paramArrayOfATpParam.length][];
+/*  57 */     ATpParam[][] arrayOfATpParam = new ATpParam[paramArrayOfATpParam.length][];
 /*  58 */     for (int i = 0; i < paramArrayOfATpParam.length; i++) {
-/*  59 */       arrayOfATpParam;[i] = localCloner.clone(paramArrayOfATpParam[i].getParams());
+/*  59 */       arrayOfATpParam[i] = localCloner.clone(paramArrayOfATpParam[i].getParams());
 /*  60 */       localCloner.remove(paramArrayOfATpParam[i].getParams());
 /*     */     }
 /*  62 */     localCloner.remove(paramArrayOfATpParam);
 /*  63 */     assert (localCloner.tparams.isEmpty()) : localCloner.tparams;
-/*  64 */     return arrayOfATpParam;;
+/*  64 */     return arrayOfATpParam;
 /*     */   }
 /*     */ 
 /*     */   public static ATpTerm[] cloneTps(ATpParam[] paramArrayOfATpParam, ACsTerm[] paramArrayOfACsTerm, ATpTerm[] paramArrayOfATpTerm)
@@ -194,7 +194,7 @@
 /* 233 */       arrayOfATpParam1[i] = new ATpParam(paramArrayOfATpParam[i].getSource(), paramArrayOfATpParam[i].getPosition(), paramArrayOfATpParam[i].getName());
 /*     */     }
 /* 235 */     insert(paramArrayOfATpParam, arrayOfATpParam1);
-/* 236 */     for (i = 0; i < arrayOfATpParam1.length; i++) {
+/* 236 */     for (int i = 0; i < arrayOfATpParam1.length; i++) {
 /* 237 */       ATpParam[] arrayOfATpParam2 = paramArrayOfATpParam[i].getParams();
 /* 238 */       arrayOfATpParam1[i].setParams(clone(arrayOfATpParam2));
 /* 239 */       arrayOfATpParam1[i].setBound(rewrite(paramArrayOfATpParam[i].getBound()));

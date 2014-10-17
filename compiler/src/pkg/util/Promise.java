@@ -48,7 +48,7 @@
 /*    */     }
 /*    */     public Type force() {
 /* 37 */       if (this.thunk != null) {
-/* 38 */         Object localObject = this.thunk.evaluate();
+/* 38 */         Type localObject = this.thunk.evaluate();
 /* 39 */         if (this.thunk != null) {
 /* 40 */           this.thunk = null;
 /* 41 */           this.value = localObject;
