@@ -1,0 +1,7 @@
+# Created by .gitignore support plugin (hsz.mobi)
+
+.DS_Store
+.gradle
+.idea
+build
+
