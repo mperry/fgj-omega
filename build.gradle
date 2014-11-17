@@ -9,12 +9,29 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: "application"
+
+defaultTasks "build"
+
+mainClassName = "pkg.hofgj.Main"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+ext {
+    examplesDir = "$projectDir/dist/examples"
+//    myArgs = ["$examplesDir/Predef.java", "$examplesDir/OOMonads.java", "-nodebug"]
+    myArgs = ["$examplesDir/Predef.java", "$examplesDir/OOMonads.java", "-print"]
+}
+
+run {
+//    args "$examplesDir/Predef.java", "$examplesDir/OOMonads.java", "-print"
+    args myArgs
+//    args "$examplesDir/Predef.java", "$examplesDir/OOMonads.java"
 }
 
 // In this section you declare the dependencies for your production and test code
