@@ -123,11 +123,11 @@
 /*  676 */     ATpTerm localATpTerm = compileTpTermToTp(paramScope, paramSSlotBound.bound);
 /*  677 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)localATpTerm.getKind()).ordinal()]) {
                switch (((ATpTerm.Kind)localATpTerm.getKind()).ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /*  679 */       return localATpTerm;
-/*      */     case 2:
+/*      */     case 1:
 /*  681 */       return localATpTerm;
-/*      */     case 3:
+/*      */     case 2:
 /*  683 */       throw new Error();
 /*      */     }
 /*  685 */     error(paramSSlotBound, "the upper bound must be a class type");
@@ -164,16 +164,16 @@
 /*      */     Object localObject;
 /*  719 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
                switch (localFTpTerm.getKind().ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /*  721 */       localObject = (FTpTerm.Concrete)localFTpTerm;
 /*  722 */       return Freezer.instance.rewrite(Cloner.cloneToCs(((FTpTerm.Concrete)localObject).clasz));
-/*      */     case 2:
+/*      */     case 1:
 /*  725 */       localObject = (FTpTerm.Abstract)localFTpTerm;
 /*  726 */       return Freezer.instance.rewrite(Cloner.cloneToCs(((FTpTerm.Abstract)localObject).param));
-/*      */     case 3:
+/*      */     case 2:
 /*  729 */       localObject = (FTpTerm.Cs)localFTpTerm;
 /*  730 */       return ((FTpTerm.Cs)localObject).term;
-/*      */     case 4:
+/*      */     case 3:
 /*  733 */       localObject = (FTpTerm.Tp)localFTpTerm;
 /*  734 */       return new ACsTerm.Function(new ATpParam[0], ((FTpTerm.Tp)localObject).term);
 /*      */     }
@@ -188,7 +188,7 @@
 /*      */     int i;
 /*  743 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
                switch (localFTpTerm.getKind().ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /*  745 */       localObject = (FTpTerm.Concrete)localFTpTerm;
 /*  746 */       i = ((FTpTerm.Concrete)localObject).clasz.getParams().length;
 /*  747 */       if (i == 0) {
@@ -197,7 +197,7 @@
 /*  750 */       error(paramSTpTerm, "unexpected type constructor\n expected: a type\n found   : a " + i + "-parameter type constructor");
 /*      */ 
 /*  753 */       return new ATpTerm.Error();
-/*      */     case 2:
+/*      */     case 1:
 /*  757 */       localObject = (FTpTerm.Abstract)localFTpTerm;
 /*  758 */       i = ((FTpTerm.Abstract)localObject).param.getParams().length;
 /*  759 */       if (i == 0) {
@@ -206,7 +206,7 @@
 /*  762 */       error(paramSTpTerm, "unexpected type constructor\n expected: a type\n found   : a " + i + "-parameter type constructor");
 /*      */ 
 /*  765 */       return new ATpTerm.Error();
-/*      */     case 3:
+/*      */     case 2:
 /*  769 */       localObject = (FTpTerm.Cs)localFTpTerm;
 /*  770 */       ACsTerm localACsTerm = ((FTpTerm.Cs)localObject).term.evaluate();
 /*  771 */       switch (localACsTerm.getKind()) {
@@ -223,7 +223,7 @@
 /*  785 */         return new ATpTerm.Error();
 /*      */       }
 /*  787 */       throw new Error("" + localACsTerm.getKind());
-/*      */     case 4:
+/*      */     case 3:
 /*  791 */       localObject = (FTpTerm.Tp)localFTpTerm;
 /*  792 */       return ((FTpTerm.Tp)localObject).term;
 /*      */     }
@@ -235,15 +235,15 @@
 /*      */   {
 /*  800 */     //switch (9.$SwitchMap$pkg$hofgj$stree$STpTerm$Kind[paramSTpTerm.getKind().ordinal()]) {
                switch (paramSTpTerm.getKind().ordinal()) {
-               case 1:
+               case 0:
 /*  801 */       return new FTpTerm.Tp(new ATpTerm.Boolean());
-/*      */     case 2:
+/*      */     case 1:
 /*  802 */       return new FTpTerm.Tp(new ATpTerm.Integer());
-/*      */     case 3:
+/*      */     case 2:
 /*  803 */       return compileTpTerm(paramScope, (STpTerm.Ref)paramSTpTerm);
-/*      */     case 4:
+/*      */     case 3:
 /*  804 */       return compileTpTerm(paramScope, (STpTerm.Abs)paramSTpTerm);
-/*      */     case 5:
+/*      */     case 4:
 /*  805 */       return compileTpTerm(paramScope, (STpTerm.App)paramSTpTerm); }
 /*  806 */     throw new Error("" + paramSTpTerm.getKind());
 /*      */   }
@@ -270,17 +270,17 @@
 /*      */     Object localObject2;
 /*  827 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$FTpTerm$Kind[localFTpTerm.getKind().ordinal()]) {
                switch (localFTpTerm.getKind().ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /*  829 */       localObject1 = (FTpTerm.Concrete)localFTpTerm;
 /*  830 */       localObject2 = compileTpTermArgs(paramScope, ((FTpTerm.Concrete)localObject1).clasz.getParams(), paramApp.args);
 /*      */ 
 /*  832 */       return new FTpTerm.Tp(new ATpTerm.Concrete(((FTpTerm.Concrete)localObject1).clasz, (ACsTerm[])localObject2));
-/*      */     case 2:
+/*      */     case 1:
 /*  835 */       localObject1 = (FTpTerm.Abstract)localFTpTerm;
 /*  836 */       localObject2 = compileTpTermArgs(paramScope, ((FTpTerm.Abstract)localObject1).param.getParams(), paramApp.args);
 /*      */ 
 /*  838 */       return new FTpTerm.Tp(new ATpTerm.Abstract(((FTpTerm.Abstract)localObject1).param, (ACsTerm[])localObject2));
-/*      */     case 3:
+/*      */     case 2:
 /*  841 */       localObject1 = (FTpTerm.Cs)localFTpTerm;
 /*  842 */       switch (((FTpTerm.Cs)localObject1).term.getKind()) {
 /*      */       case FUNCTION:
@@ -294,7 +294,7 @@
 /*      */       }
 /*      */ 
 /*  855 */       throw new Error("" + ((FTpTerm.Cs)localObject1).term.getKind());
-/*      */     case 4:
+/*      */     case 3:
 /*  859 */       localObject1 = (FTpTerm.Tp)localFTpTerm;
 /*  860 */       error(paramApp, "cannot apply arguments to a type");
 /*  861 */       return new FTpTerm.Tp(new ATpTerm.Error());
@@ -327,25 +327,25 @@
 /*      */   public VlTp compileVlTerm(Scope paramScope, SVlTerm paramSVlTerm) {
 /*  928 */     //switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$Kind[paramSVlTerm.getKind().ordinal()]) {
                switch (paramSVlTerm.getKind().ordinal()) {
-               case 1:
+               case 0:
 /*  929 */       return compileVlTerm(paramScope, (SVlTerm.Boolean)paramSVlTerm);
-/*      */     case 2:
+/*      */     case 1:
 /*  930 */       return compileVlTerm(paramScope, (SVlTerm.Integer)paramSVlTerm);
-/*      */     case 3:
+/*      */     case 2:
 /*  931 */       return compileVlTerm(paramScope, (SVlTerm.This)paramSVlTerm);
-/*      */     case 4:
+/*      */     case 3:
 /*  932 */       return compileVlTerm(paramScope, (SVlTerm.Ref)paramSVlTerm);
-/*      */     case 5:
+/*      */     case 4:
 /*  933 */       return compileVlTerm(paramScope, (SVlTerm.Sel)paramSVlTerm);
-/*      */     case 6:
+/*      */     case 5:
 /*  934 */       return compileVlTerm(paramScope, (SVlTerm.New)paramSVlTerm);
-/*      */     case 7:
+/*      */     case 6:
 /*  935 */       return compileVlTerm(paramScope, (SVlTerm.If)paramSVlTerm);
-/*      */     case 8:
+/*      */     case 7:
 /*  936 */       return compileVlTerm(paramScope, (SVlTerm.Unary)paramSVlTerm);
-/*      */     case 9:
+/*      */     case 8:
 /*  937 */       return compileVlTerm(paramScope, (SVlTerm.Binary)paramSVlTerm);
-/*      */     case 10:
+/*      */     case 9:
 /*  938 */       return compileVlTerm(paramScope, (SVlTerm.Block)paramSVlTerm); }
 /*  939 */     throw new Error("" + paramSVlTerm.getKind());
 /*      */   }
@@ -561,13 +561,13 @@
 /*      */   {
 /* 1182 */     //switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
                switch (paramUnaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1183 */       return AVlTerm.UnaryOperator.IPOS;
-/*      */     case 2:
+/*      */     case 1:
 /* 1184 */       return AVlTerm.UnaryOperator.INEG;
-/*      */     case 3:
+/*      */     case 2:
 /* 1185 */       return AVlTerm.UnaryOperator.INOT;
-/*      */     case 4:
+/*      */     case 3:
 /* 1186 */       return AVlTerm.UnaryOperator.ZNOT; }
 /* 1187 */     throw new Error("" + paramUnaryOperator);
 /*      */   }
@@ -576,13 +576,13 @@
 /*      */   {
 /* 1192 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
                switch (paramUnaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1193 */       return new ATpTerm.Integer();
-/*      */     case 2:
+/*      */     case 1:
 /* 1194 */       return new ATpTerm.Integer();
-/*      */     case 3:
+/*      */     case 2:
 /* 1195 */       return new ATpTerm.Integer();
-/*      */     case 4:
+/*      */     case 3:
 /* 1196 */       return new ATpTerm.Boolean(); }
 /* 1197 */     throw new Error("" + paramUnaryOperator);
 /*      */   }
@@ -591,13 +591,13 @@
 /*      */   {
 /* 1202 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
                switch (paramUnaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1203 */       return new ATpTerm.Integer();
-/*      */     case 2:
+/*      */     case 1:
 /* 1204 */       return new ATpTerm.Integer();
-/*      */     case 3:
+/*      */     case 2:
 /* 1205 */       return new ATpTerm.Integer();
-/*      */     case 4:
+/*      */     case 3:
 /* 1206 */       return new ATpTerm.Boolean(); }
 /* 1207 */     throw new Error("" + paramUnaryOperator);
 /*      */   }
@@ -606,45 +606,45 @@
 /*      */   {
 /* 1212 */     //switch (9.$SwitchMap$pkg$hofgj$stree$SVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
                switch (paramBinaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1213 */       return AVlTerm.BinaryOperator.IADD;
-/*      */     case 2:
+/*      */     case 1:
 /* 1214 */       return AVlTerm.BinaryOperator.ISUB;
-/*      */     case 3:
+/*      */     case 2:
 /* 1215 */       return AVlTerm.BinaryOperator.IMUL;
-/*      */     case 4:
+/*      */     case 3:
 /* 1216 */       return AVlTerm.BinaryOperator.IDIV;
-/*      */     case 5:
+/*      */     case 4:
 /* 1217 */       return AVlTerm.BinaryOperator.IREM;
-/*      */     case 6:
+/*      */     case 5:
 /* 1218 */       return AVlTerm.BinaryOperator.ILSL;
-/*      */     case 7:
+/*      */     case 6:
 /* 1219 */       return AVlTerm.BinaryOperator.ILSR;
-/*      */     case 8:
+/*      */     case 7:
 /* 1220 */       return AVlTerm.BinaryOperator.IASR;
-/*      */     case 9:
+/*      */     case 8:
 /* 1221 */       return AVlTerm.BinaryOperator.ILT;
-/*      */     case 10:
+/*      */     case 9:
 /* 1222 */       return AVlTerm.BinaryOperator.IGE;
-/*      */     case 11:
+/*      */     case 10:
 /* 1223 */       return AVlTerm.BinaryOperator.ILE;
-/*      */     case 12:
+/*      */     case 11:
 /* 1224 */       return AVlTerm.BinaryOperator.IGT;
-/*      */     case 13:
+/*      */     case 12:
 /* 1225 */       return AVlTerm.BinaryOperator.IEQ;
-/*      */     case 14:
+/*      */     case 13:
 /* 1226 */       return AVlTerm.BinaryOperator.INE;
-/*      */     case 15:
+/*      */     case 14:
 /* 1227 */       return AVlTerm.BinaryOperator.IOR;
-/*      */     case 16:
+/*      */     case 15:
 /* 1228 */       return AVlTerm.BinaryOperator.IXOR;
-/*      */     case 17:
+/*      */     case 16:
 /* 1229 */       return AVlTerm.BinaryOperator.IAND;
-/*      */     case 18:
+/*      */     case 17:
 /* 1230 */       return AVlTerm.BinaryOperator.ZOR;
-/*      */     case 19:
+/*      */     case 18:
 /* 1231 */       return AVlTerm.BinaryOperator.ZXOR;
-/*      */     case 20:
+/*      */     case 19:
 /* 1232 */       return AVlTerm.BinaryOperator.ZAND; }
 /* 1233 */     throw new Error("" + paramBinaryOperator);
 /*      */   }
@@ -653,45 +653,45 @@
 /*      */   {
 /* 1238 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
                switch (paramBinaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1239 */       return new ATpTerm.Integer();
-/*      */     case 2:
+/*      */     case 1:
 /* 1240 */       return new ATpTerm.Integer();
-/*      */     case 3:
+/*      */     case 2:
 /* 1241 */       return new ATpTerm.Integer();
-/*      */     case 4:
+/*      */     case 3:
 /* 1242 */       return new ATpTerm.Integer();
-/*      */     case 5:
+/*      */     case 4:
 /* 1243 */       return new ATpTerm.Integer();
-/*      */     case 6:
+/*      */     case 5:
 /* 1244 */       return new ATpTerm.Integer();
-/*      */     case 7:
+/*      */     case 6:
 /* 1245 */       return new ATpTerm.Integer();
-/*      */     case 8:
+/*      */     case 7:
 /* 1246 */       return new ATpTerm.Integer();
-/*      */     case 9:
+/*      */     case 8:
 /* 1247 */       return new ATpTerm.Integer();
-/*      */     case 10:
+/*      */     case 9:
 /* 1248 */       return new ATpTerm.Integer();
-/*      */     case 11:
+/*      */     case 10:
 /* 1249 */       return new ATpTerm.Integer();
-/*      */     case 12:
+/*      */     case 11:
 /* 1250 */       return new ATpTerm.Integer();
-/*      */     case 13:
+/*      */     case 12:
 /* 1251 */       return new ATpTerm.Integer();
-/*      */     case 14:
+/*      */     case 13:
 /* 1252 */       return new ATpTerm.Integer();
-/*      */     case 15:
+/*      */     case 14:
 /* 1253 */       return new ATpTerm.Integer();
-/*      */     case 16:
+/*      */     case 15:
 /* 1254 */       return new ATpTerm.Integer();
-/*      */     case 17:
+/*      */     case 16:
 /* 1255 */       return new ATpTerm.Integer();
-/*      */     case 18:
+/*      */     case 17:
 /* 1256 */       return new ATpTerm.Boolean();
-/*      */     case 19:
+/*      */     case 18:
 /* 1257 */       return new ATpTerm.Boolean();
-/*      */     case 20:
+/*      */     case 19:
 /* 1258 */       return new ATpTerm.Boolean(); }
 /* 1259 */     throw new Error("" + paramBinaryOperator);
 /*      */   }
@@ -700,45 +700,45 @@
 /*      */   {
 /* 1264 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
                switch (paramBinaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1265 */       return new ATpTerm.Integer();
-/*      */     case 2:
+/*      */     case 1:
 /* 1266 */       return new ATpTerm.Integer();
-/*      */     case 3:
+/*      */     case 2:
 /* 1267 */       return new ATpTerm.Integer();
-/*      */     case 4:
+/*      */     case 3:
 /* 1268 */       return new ATpTerm.Integer();
-/*      */     case 5:
+/*      */     case 4:
 /* 1269 */       return new ATpTerm.Integer();
-/*      */     case 6:
+/*      */     case 5:
 /* 1270 */       return new ATpTerm.Integer();
-/*      */     case 7:
+/*      */     case 6:
 /* 1271 */       return new ATpTerm.Integer();
-/*      */     case 8:
+/*      */     case 7:
 /* 1272 */       return new ATpTerm.Integer();
-/*      */     case 9:
+/*      */     case 8:
 /* 1273 */       return new ATpTerm.Integer();
-/*      */     case 10:
+/*      */     case 9:
 /* 1274 */       return new ATpTerm.Integer();
-/*      */     case 11:
+/*      */     case 10:
 /* 1275 */       return new ATpTerm.Integer();
-/*      */     case 12:
+/*      */     case 11:
 /* 1276 */       return new ATpTerm.Integer();
-/*      */     case 13:
+/*      */     case 12:
 /* 1277 */       return new ATpTerm.Integer();
-/*      */     case 14:
+/*      */     case 13:
 /* 1278 */       return new ATpTerm.Integer();
-/*      */     case 15:
+/*      */     case 14:
 /* 1279 */       return new ATpTerm.Integer();
-/*      */     case 16:
+/*      */     case 15:
 /* 1280 */       return new ATpTerm.Integer();
-/*      */     case 17:
+/*      */     case 16:
 /* 1281 */       return new ATpTerm.Integer();
-/*      */     case 18:
+/*      */     case 17:
 /* 1282 */       return new ATpTerm.Boolean();
-/*      */     case 19:
+/*      */     case 18:
 /* 1283 */       return new ATpTerm.Boolean();
-/*      */     case 20:
+/*      */     case 19:
 /* 1284 */       return new ATpTerm.Boolean(); }
 /* 1285 */     throw new Error("" + paramBinaryOperator);
 /*      */   }
@@ -747,45 +747,45 @@
 /*      */   {
 /* 1290 */     //switch (9.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
                switch (paramBinaryOperator.ordinal()) {
-               case 1:
+               case 0:
 /* 1291 */       return new ATpTerm.Integer();
-/*      */     case 2:
+/*      */     case 1:
 /* 1292 */       return new ATpTerm.Integer();
-/*      */     case 3:
+/*      */     case 2:
 /* 1293 */       return new ATpTerm.Integer();
-/*      */     case 4:
+/*      */     case 3:
 /* 1294 */       return new ATpTerm.Integer();
-/*      */     case 5:
+/*      */     case 4:
 /* 1295 */       return new ATpTerm.Integer();
-/*      */     case 6:
+/*      */     case 5:
 /* 1296 */       return new ATpTerm.Integer();
-/*      */     case 7:
+/*      */     case 6:
 /* 1297 */       return new ATpTerm.Integer();
-/*      */     case 8:
+/*      */     case 7:
 /* 1298 */       return new ATpTerm.Integer();
-/*      */     case 9:
+/*      */     case 8:
 /* 1299 */       return new ATpTerm.Boolean();
-/*      */     case 10:
+/*      */     case 9:
 /* 1300 */       return new ATpTerm.Boolean();
-/*      */     case 11:
+/*      */     case 10:
 /* 1301 */       return new ATpTerm.Boolean();
-/*      */     case 12:
+/*      */     case 11:
 /* 1302 */       return new ATpTerm.Boolean();
-/*      */     case 13:
+/*      */     case 12:
 /* 1303 */       return new ATpTerm.Boolean();
-/*      */     case 14:
+/*      */     case 13:
 /* 1304 */       return new ATpTerm.Boolean();
-/*      */     case 15:
+/*      */     case 14:
 /* 1305 */       return new ATpTerm.Integer();
-/*      */     case 16:
+/*      */     case 15:
 /* 1306 */       return new ATpTerm.Integer();
-/*      */     case 17:
+/*      */     case 16:
 /* 1307 */       return new ATpTerm.Integer();
-/*      */     case 18:
+/*      */     case 17:
 /* 1308 */       return new ATpTerm.Boolean();
-/*      */     case 19:
+/*      */     case 18:
 /* 1309 */       return new ATpTerm.Boolean();
-/*      */     case 20:
+/*      */     case 19:
 /* 1310 */       return new ATpTerm.Boolean(); }
 /* 1311 */     throw new Error("" + paramBinaryOperator);
 /*      */   }

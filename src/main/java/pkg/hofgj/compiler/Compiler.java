@@ -101,12 +101,12 @@
 /*     */   {
 /* 150 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) {
               switch (paramACsTerm.getKind().ordinal()) {
-/*     */     case 1:
+/*     */     case 0:
 /* 152 */       ACsTerm.Function localFunction = (ACsTerm.Function)paramACsTerm;
 /* 153 */       return apply(localFunction.params, paramArrayOfACsTerm, localFunction.body);
-/*     */     case 2:
+/*     */     case 1:
 /* 156 */       return new ATpTerm.Error();
-/*     */     case 3:
+/*     */     case 2:
 /* 158 */       return apply(paramACsTerm.evaluate(), paramArrayOfACsTerm);
 /*     */     }
 /* 160 */     throw new Error("" + paramACsTerm.getKind());
@@ -123,28 +123,28 @@
 /*     */     Object localObject2;
 /* 169 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) {
               switch (((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()) {
-/*     */     case 1:
+/*     */     case 0:
 /* 171 */       localObject1 = (ATpTerm.Boolean)paramATpTerm;
 /* 172 */       return Option.Some(getObjectAsTp());
-/*     */     case 2:
+/*     */     case 1:
 /* 175 */       localObject1 = (ATpTerm.Integer)paramATpTerm;
 /* 176 */       return Option.Some(getObjectAsTp());
-/*     */     case 3:
+/*     */     case 2:
 /* 179 */       localObject1 = (ATpTerm.Concrete)paramATpTerm;
 /* 180 */       localObject2 = ((ATpTerm.Concrete)localObject1).clasz.getBase();
 /* 181 */       if (((Option)localObject2).isEmpty()) return Option.None();
 /* 182 */       ATpTerm localATpTerm = apply(((ATpTerm.Concrete)localObject1).clasz.getParams(), ((ATpTerm.Concrete)localObject1).args, ((AClassBase)((Option)localObject2).get()).getBaseType());
 /*     */ 
 /* 184 */       return Option.Some(localATpTerm);
-/*     */     case 4:
+/*     */     case 3:
 /* 187 */       localObject1 = (ATpTerm.Abstract)paramATpTerm;
 /* 188 */       localObject2 = apply(((ATpTerm.Abstract)localObject1).param.getParams(), ((ATpTerm.Abstract)localObject1).args, ((ATpTerm.Abstract)localObject1).param.getBound());
 /*     */ 
 /* 190 */       return Option.Some((ATpTerm) localObject2);
-/*     */     case 5:
+/*     */     case 4:
 /* 193 */       localObject1 = (ATpTerm.Error)paramATpTerm;
 /* 194 */       return Option.None();
-/*     */     case 6:
+/*     */     case 5:
 /* 197 */       localObject1 = (ATpTerm.Delayed)paramATpTerm;
 /* 198 */       return getUpperBound((ATpTerm)((ATpTerm.Delayed)localObject1).promise.force());
 /*     */     }
@@ -156,13 +156,14 @@
 /*     */   {
 /* 206 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) {
               switch (((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()) {
-              case 3:
+              case 2:
 /* 207 */       return Option.Some(paramATpTerm);
-/*     */     case 5:
+/*     */     case 4:
 /* 208 */       return Option.Some(paramATpTerm);
-/*     */     case 6:
+/*     */     case 5:
 /* 209 */       return getUpperClass(paramATpTerm.evaluate());
-/*     */     case 4: }
+/*     */     case 3:
+              }
 /* 211 */     Option localOption = getUpperBound(paramATpTerm);
 /* 212 */     if (localOption.isEmpty()) return Option.None();
 /* 213 */     return getUpperClass((ATpTerm)localOption.get());
@@ -191,7 +192,7 @@
 /*     */     Object localObject2;
 /* 237 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()]) {
               switch (((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()) {
-/*     */     case 1:
+/*     */     case 0:
 /* 239 */       ATpTerm localObject1 = (ATpTerm.Boolean)paramATpTerm2;
 /* 240 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*     */       case BOOLEAN:
@@ -200,7 +201,7 @@
 /*     */       }
 /*     */ 
 /* 246 */       break;
-/*     */     case 2:
+/*     */     case 1:
 /* 250 */       localObject1 = (ATpTerm.Integer)paramATpTerm2;
 /* 251 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*     */       case INTEGER:
@@ -209,7 +210,7 @@
 /*     */       }
 /*     */ 
 /* 257 */       break;
-/*     */     case 3:
+/*     */     case 2:
 /* 261 */       localObject1 = (ATpTerm.Concrete)paramATpTerm2;
 /* 262 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*     */       case CONCRETE:
@@ -220,7 +221,7 @@
 /*     */         break;
 /*     */       }
 /* 270 */       break;
-/*     */     case 4:
+/*     */     case 3:
 /* 274 */       localObject1 = (ATpTerm.Abstract)paramATpTerm2;
 /* 275 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*     */       case ABSTRACT:
@@ -321,11 +322,11 @@
 /*     */   public String toString(ACsTerm paramACsTerm) {
 /* 389 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) {
               switch (paramACsTerm.getKind().ordinal()) {
-              case 1:
+              case 0:
 /* 390 */       return toString((ACsTerm.Function)paramACsTerm);
-/*     */     case 2:
+/*     */     case 1:
 /* 391 */       return "<error>";
-/*     */     case 3:
+/*     */     case 2:
 /* 392 */       return toString(paramACsTerm.evaluate()); }
 /* 393 */     throw new Error("" + paramACsTerm.getKind());
 /*     */   }
@@ -347,17 +348,17 @@
 /*     */   public String toString(ATpTerm paramATpTerm) {
 /* 411 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) {
               switch (((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()) {
-              case 1:
+              case 0:
 /* 412 */       return "Boolean";
-/*     */     case 2:
+/*     */     case 1:
 /* 413 */       return "Int";
-/*     */     case 3:
+/*     */     case 2:
 /* 414 */       return toString((ATpTerm.Concrete)paramATpTerm);
-/*     */     case 4:
+/*     */     case 3:
 /* 415 */       return toString((ATpTerm.Abstract)paramATpTerm);
-/*     */     case 5:
+/*     */     case 4:
 /* 416 */       return "<error>";
-/*     */     case 6:
+/*     */     case 5:
 /* 417 */       return toString(paramATpTerm.evaluate()); }
 /* 418 */     throw new Error("" + paramATpTerm.getKind());
 /*     */   }
@@ -383,29 +384,29 @@
 /*     */   public String toString(AVlTerm paramAVlTerm) {
 /* 440 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) {
               switch (paramAVlTerm.getKind().ordinal()) {
-              case 1:
+              case 0:
 /* 441 */       return toString((AVlTerm.Boolean)paramAVlTerm);
-/*     */     case 2:
+/*     */     case 1:
 /* 442 */       return toString((AVlTerm.Integer)paramAVlTerm);
-/*     */     case 3:
+/*     */     case 2:
 /* 443 */       return "this";
-/*     */     case 4:
+/*     */     case 3:
 /* 444 */       return toString((AVlTerm.Local)paramAVlTerm);
-/*     */     case 5:
+/*     */     case 4:
 /* 445 */       return toString((AVlTerm.Get)paramAVlTerm);
-/*     */     case 6:
+/*     */     case 5:
 /* 446 */       return toString((AVlTerm.Call)paramAVlTerm);
-/*     */     case 7:
+/*     */     case 6:
 /* 447 */       return toString((AVlTerm.New)paramAVlTerm);
-/*     */     case 8:
+/*     */     case 7:
 /* 448 */       return toString((AVlTerm.If)paramAVlTerm);
-/*     */     case 9:
+/*     */     case 8:
 /* 449 */       return toString((AVlTerm.Unary)paramAVlTerm);
-/*     */     case 10:
+/*     */     case 9:
 /* 450 */       return toString((AVlTerm.Binary)paramAVlTerm);
-/*     */     case 11:
+/*     */     case 10:
 /* 451 */       return "<error>";
-/*     */     case 12:
+/*     */     case 11:
 /* 452 */       return toString(paramAVlTerm.evaluate()); }
 /* 453 */     throw new Error("" + paramAVlTerm.getKind());
 /*     */   }
@@ -454,13 +455,13 @@
 /*     */   {
 /* 504 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnaryOperator.ordinal()]) {
               switch (paramUnaryOperator.ordinal()) {
-              case 1:
+              case 0:
 /* 505 */       return "+";
-/*     */     case 2:
+/*     */     case 1:
 /* 506 */       return "-";
-/*     */     case 3:
+/*     */     case 2:
 /* 507 */       return "~";
-/*     */     case 4:
+/*     */     case 3:
 /* 508 */       return "!"; }
 /* 509 */     throw new Error("" + paramUnaryOperator);
 /*     */   }
@@ -469,45 +470,45 @@
 /*     */   {
 /* 514 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinaryOperator.ordinal()]) {
               switch (paramBinaryOperator.ordinal()) {
-              case 1:
+              case 0:
 /* 515 */       return "+";
-/*     */     case 2:
+/*     */     case 1:
 /* 516 */       return "-";
-/*     */     case 3:
+/*     */     case 2:
 /* 517 */       return "*";
-/*     */     case 4:
+/*     */     case 3:
 /* 518 */       return "/";
-/*     */     case 5:
+/*     */     case 4:
 /* 519 */       return "%";
-/*     */     case 6:
+/*     */     case 5:
 /* 520 */       return "<<";
-/*     */     case 7:
+/*     */     case 6:
 /* 521 */       return ">>>";
-/*     */     case 8:
+/*     */     case 7:
 /* 522 */       return ">>";
-/*     */     case 9:
+/*     */     case 8:
 /* 523 */       return "<";
-/*     */     case 10:
+/*     */     case 9:
 /* 524 */       return ">=";
-/*     */     case 11:
+/*     */     case 10:
 /* 525 */       return "<=";
-/*     */     case 12:
+/*     */     case 11:
 /* 526 */       return ">";
-/*     */     case 13:
+/*     */     case 12:
 /* 527 */       return "==";
-/*     */     case 14:
+/*     */     case 13:
 /* 528 */       return "!=";
-/*     */     case 15:
+/*     */     case 14:
 /* 529 */       return "|";
-/*     */     case 16:
+/*     */     case 15:
 /* 530 */       return "^";
-/*     */     case 17:
+/*     */     case 16:
 /* 531 */       return "&";
-/*     */     case 18:
+/*     */     case 17:
 /* 532 */       return "||";
-/*     */     case 19:
+/*     */     case 18:
 /* 533 */       return "^^";
-/*     */     case 20:
+/*     */     case 19:
 /* 534 */       return "&&"; }
 /* 535 */     throw new Error("" + paramBinaryOperator);
 /*     */   }
@@ -525,11 +526,11 @@
 /*     */   public String toString(Value paramValue) {
 /* 549 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$Value$Kind[paramValue.getKind().ordinal()]) {
               switch (paramValue.getKind().ordinal()) {
-              case 1:
+              case 0:
 /* 550 */       return toString((Value.Object)paramValue);
-/*     */     case 2:
+/*     */     case 1:
 /* 551 */       return toString((Value.Boolean)paramValue);
-/*     */     case 3:
+/*     */     case 2:
 /* 552 */       return toString((Value.Integer)paramValue); }
 /* 553 */     throw new Error("" + paramValue.getKind());
 /*     */   }

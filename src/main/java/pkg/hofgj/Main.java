@@ -44,7 +44,9 @@
 /* 53 */     Compiler localCompiler = new Compiler();
 /* 54 */     localCompiler.compile((Source[])localArrayList.toArray(new Source[localArrayList.size()]));
 /*    */     Object localObject2;
-/* 55 */     for (Object localObject1 = localArrayList.iterator(); ((Iterator)localObject1).hasNext(); i += ((Source)localObject2).getErrorCount()) localObject2 = (Source)((Iterator)localObject1).next();
+/* 55 */     for (Object localObject1 = localArrayList.iterator(); ((Iterator)localObject1).hasNext(); i += ((Source)localObject2).getErrorCount()) {
+                localObject2 = (Source)((Iterator)localObject1).next();
+              }
 /*    */ 
 /* 57 */     if (j != 0) {
 /* 58 */       System.out.println("//############################################################################");

@@ -93,7 +93,13 @@
 /*      */ 
 /*      */   public SProgram parseProgram()
 /*      */   {
-/*   90 */     return mkProgram(position(), parseMembers(), token() == 1 ? Option.None() : Option.Some(parseStatement()));
+                int p = position();
+                SMember[] pm = parseMembers();
+                int t = token();
+                Option<SVlTerm> o = t == 1 ? Option.None() : Option.Some(parseStatement());
+                return mkProgram(p, pm, o);
+
+///*   90 */     return mkProgram(position(), parseMembers(), token() == 1 ? Option.None() : Option.Some(parseStatement()));
 /*      */   }
 /*      */ 
 /*      */   public SModifier[] parseModifiers()
@@ -307,6 +313,7 @@
 /*      */ 
 /*      */   public SVlTerm parseStatement()
 /*      */   {
+                int z = 0;
 /*  405 */     switch (token()) {
 /*      */     case 30:
 /*  407 */       return mkVlIf(skip(), skip(50), parseVlTerm(), skip(51), parseStatement(), skip(31), parseStatement());

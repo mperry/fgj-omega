@@ -52,9 +52,9 @@
 /*  56 */     if (localKind1 != localKind2) return false;
 /*  57 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[localKind1.ordinal()]) {
               switch (localKind1.ordinal()) {
-/*     */     case 1:
+/*     */     case 0:
 /*  59 */       return true;
-/*     */     case 2:
+/*     */     case 1:
 /*  61 */       return Util.areEqual(paramOption1.value(), paramOption2.value());
 /*     */     }
 /*  63 */     throw Debug.unexpected(paramOption1);
@@ -64,10 +64,11 @@
 /*     */   {
 /*  76 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /*  77 */       return true;
-/*     */     case 2:
-/*  78 */       return false; }
+/*     */     case 1:
+/*  78 */       return false;
+              }
 /*  79 */     throw Debug.unexpected(this);
 /*     */   }
 /*     */ 
@@ -75,9 +76,9 @@
 /*     */   {
 /*  84 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /*  85 */       throw Debug.illegal(this, "value", new Object[0]);
-/*     */     case 2:
+/*     */     case 1:
 /*  86 */       return ((Some<Type>)this).value; }
 /*  87 */     throw Debug.unexpected(this);
 /*     */   }
@@ -90,9 +91,9 @@
 /*     */   public final int size() {
 /*  96 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /*  97 */       return 0;
-/*     */     case 2:
+/*     */     case 1:
 /*  98 */       return 1; }
 /*  99 */     throw Debug.unexpected(this);
 /*     */   }
@@ -101,9 +102,9 @@
 /*     */   {
 /* 104 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /* 105 */       throw Debug.illegal(this, "get", new Object[0]);
-/*     */     case 2:
+/*     */     case 1:
 /* 106 */       return value(); }
 /* 107 */     throw Debug.unexpected(this);
 /*     */   }
@@ -112,9 +113,9 @@
 /*     */   {
 /* 112 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /* 113 */       return paramType;
-/*     */     case 2:
+/*     */     case 1:
 /* 114 */       return value(); }
 /* 115 */     throw Debug.unexpected(this);
 /*     */   }
@@ -123,9 +124,9 @@
 /*     */   {
 /* 120 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /* 121 */       return paramArrayOfType;
-/*     */     case 2:
+/*     */     case 1:
 /* 122 */       paramArrayOfType[0] = value(); return paramArrayOfType; }
 /* 123 */     throw Debug.unexpected(this);
 /*     */   }
@@ -143,9 +144,9 @@
 /*     */   public final String toString() {
 /* 137 */     //switch (2.$SwitchMap$pkg$util$Option$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /* 138 */       return "Option()";
-/*     */     case 2:
+/*     */     case 1:
 /* 139 */       return "Option(" + value() + ")"; }
 /* 140 */     throw Debug.unexpected(this);
 /*     */   }

@@ -41,27 +41,27 @@
 /*     */   private Value evaluate(AVlTerm paramAVlTerm) {
 /*  53 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) {
               switch (paramAVlTerm.getKind().ordinal()) {
-              case 1:
+              case 0:
 /*  54 */       return evaluate((AVlTerm.Boolean)paramAVlTerm);
-/*     */     case 2:
+/*     */     case 1:
 /*  55 */       return evaluate((AVlTerm.Integer)paramAVlTerm);
-/*     */     case 3:
+/*     */     case 2:
 /*  56 */       return evaluate((AVlTerm.This)paramAVlTerm);
-/*     */     case 4:
+/*     */     case 3:
 /*  57 */       return evaluate((AVlTerm.Local)paramAVlTerm);
-/*     */     case 5:
+/*     */     case 4:
 /*  58 */       return evaluate((AVlTerm.Get)paramAVlTerm);
-/*     */     case 6:
+/*     */     case 5:
 /*  59 */       return evaluate((AVlTerm.Call)paramAVlTerm);
-/*     */     case 7:
+/*     */     case 6:
 /*  60 */       return evaluate((AVlTerm.New)paramAVlTerm);
-/*     */     case 8:
+/*     */     case 7:
 /*  61 */       return evaluate((AVlTerm.If)paramAVlTerm);
-/*     */     case 9:
+/*     */     case 8:
 /*  62 */       return evaluate((AVlTerm.Unary)paramAVlTerm);
-/*     */     case 10:
+/*     */     case 9:
 /*  63 */       return evaluate((AVlTerm.Binary)paramAVlTerm);
-/*     */     case 11:
+/*     */     case 10:
 /*  64 */       return evaluate(paramAVlTerm.evaluate()); }
 /*  65 */     throw new Error("" + paramAVlTerm.getKind());
 /*     */   }
@@ -135,13 +135,13 @@
 /*     */   {
 /* 140 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$UnaryOperator[paramUnary.operator.ordinal()]) {
             switch (paramUnary.operator.ordinal()) {
-              case 1:
+              case 0:
 /* 141 */       return mkInteger(toInteger(paramUnary.arg));
-/*     */     case 2:
+/*     */     case 1:
 /* 142 */       return mkInteger(-toInteger(paramUnary.arg));
-/*     */     case 3:
+/*     */     case 2:
 /* 143 */       return mkInteger(toInteger(paramUnary.arg) ^ 0xFFFFFFFF);
-/*     */     case 4:
+/*     */     case 3:
 /* 144 */       return mkBoolean(!toBoolean(paramUnary.arg)); }
 /* 145 */     throw new Error("" + paramUnary.operator);
 /*     */   }
@@ -152,45 +152,45 @@
 /* 151 */     AVlTerm localAVlTerm2 = paramBinary.argr;
 /* 152 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$BinaryOperator[paramBinary.operator.ordinal()]) {
             switch (paramBinary.operator.ordinal()) {
-              case 1:
+              case 0:
 /* 153 */       return mkInteger(toInteger(localAVlTerm1) + toInteger(localAVlTerm2));
-/*     */     case 2:
+/*     */     case 1:
 /* 154 */       return mkInteger(toInteger(localAVlTerm1) - toInteger(localAVlTerm2));
-/*     */     case 3:
+/*     */     case 2:
 /* 155 */       return mkInteger(toInteger(localAVlTerm1) * toInteger(localAVlTerm2));
-/*     */     case 4:
+/*     */     case 3:
 /* 156 */       return mkInteger(toInteger(localAVlTerm1) / toInteger(localAVlTerm2));
-/*     */     case 5:
+/*     */     case 4:
 /* 157 */       return mkInteger(toInteger(localAVlTerm1) % toInteger(localAVlTerm2));
-/*     */     case 6:
+/*     */     case 5:
 /* 158 */       return mkInteger(toInteger(localAVlTerm1) << toInteger(localAVlTerm2));
-/*     */     case 7:
+/*     */     case 6:
 /* 159 */       return mkInteger(toInteger(localAVlTerm1) >>> toInteger(localAVlTerm2));
-/*     */     case 8:
+/*     */     case 7:
 /* 160 */       return mkInteger(toInteger(localAVlTerm1) >> toInteger(localAVlTerm2));
-/*     */     case 9:
+/*     */     case 8:
 /* 161 */       return mkBoolean(toInteger(localAVlTerm1) < toInteger(localAVlTerm2));
-/*     */     case 10:
+/*     */     case 9:
 /* 162 */       return mkBoolean(toInteger(localAVlTerm1) >= toInteger(localAVlTerm2));
-/*     */     case 11:
+/*     */     case 10:
 /* 163 */       return mkBoolean(toInteger(localAVlTerm1) <= toInteger(localAVlTerm2));
-/*     */     case 12:
+/*     */     case 11:
 /* 164 */       return mkBoolean(toInteger(localAVlTerm1) > toInteger(localAVlTerm2));
-/*     */     case 13:
+/*     */     case 12:
 /* 165 */       return mkBoolean(toInteger(localAVlTerm1) == toInteger(localAVlTerm2));
-/*     */     case 14:
+/*     */     case 13:
 /* 166 */       return mkBoolean(toInteger(localAVlTerm1) != toInteger(localAVlTerm2));
-/*     */     case 15:
+/*     */     case 14:
 /* 167 */       return mkInteger(toInteger(localAVlTerm1) | toInteger(localAVlTerm2));
-/*     */     case 16:
+/*     */     case 15:
 /* 168 */       return mkInteger(toInteger(localAVlTerm1) ^ toInteger(localAVlTerm2));
-/*     */     case 17:
+/*     */     case 16:
 /* 169 */       return mkInteger(toInteger(localAVlTerm1) & toInteger(localAVlTerm2));
-/*     */     case 18:
+/*     */     case 17:
 /* 170 */       return mkBoolean((toBoolean(localAVlTerm1)) || (toBoolean(localAVlTerm2)));
-/*     */     case 19:
+/*     */     case 18:
 /* 171 */       return mkBoolean(toBoolean(localAVlTerm1) ^ toBoolean(localAVlTerm2));
-/*     */     case 20:
+/*     */     case 19:
 /* 172 */       return mkBoolean((toBoolean(localAVlTerm1)) && (toBoolean(localAVlTerm2))); }
 /* 173 */     throw new Error("" + paramBinary.operator);
 /*     */   }

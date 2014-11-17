@@ -31,9 +31,9 @@
 /*  34 */       if (localKind1 != localKind2) return false;
 /*  35 */       //switch (1.$SwitchMap$pkg$util$List$Kind[localKind1.ordinal()]) {
                 switch (localKind1.ordinal()) {
-/*     */       case 1:
+/*     */       case 0:
 /*  37 */         return true;
-/*     */       case 2:
+/*     */       case 1:
 /*  39 */         if (!Util.areEqual(paramList1.head(), paramList2.head())) return false;
 /*  40 */         paramList1 = paramList1.tail();
 /*  41 */         paramList2 = paramList2.tail(); } 
@@ -47,9 +47,9 @@
 /*     */   {
 /*  58 */     //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /*  59 */       return true;
-/*     */     case 2:
+/*     */     case 1:
 /*  60 */       return false; }
 /*  61 */     throw Debug.unexpected(this);
 /*     */   }
@@ -58,9 +58,9 @@
 /*     */   {
 /*  66 */     //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /*  67 */       throw Debug.illegal(this, "head", new Object[0]);
-/*     */     case 2:
+/*     */     case 1:
 /*  68 */       return ((Cons<Type>)this).head; }
 /*  69 */     throw Debug.unexpected(this);
 /*     */   }
@@ -69,9 +69,9 @@
 /*     */   {
 /*  74 */     //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)getKind()).ordinal()]) {
               switch (((Kind)getKind()).ordinal()) {
-              case 1:
+              case 0:
 /*  75 */       throw Debug.illegal(this, "tail", new Object[0]);
-/*     */     case 2:
+/*     */     case 1:
 /*  76 */       return ((Cons)this).tail; }
 /*  77 */     throw Debug.unexpected(this);
 /*     */   }
@@ -86,9 +86,9 @@
 /*  87 */     for (List localList = this; ; localList = localList.tail())
 /*  88 */       //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)localList.getKind()).ordinal()]) {
                 switch (((Kind)localList.getKind()).ordinal()) {
-                case 1:
+                case 0:
 /*  89 */         return i;
-/*     */       case 2:
+/*     */       case 1:
 /*  90 */         i++; break;
 /*     */       default:
 /*  91 */         throw Debug.unexpected(localList);
@@ -101,9 +101,9 @@
 /*  98 */     for (List localList = this; ; localList = localList.tail())
 /*  99 */       //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)localList.getKind()).ordinal()]) {
                 switch (((Kind)localList.getKind()).ordinal()) {
-                case 1:
+                case 0:
 /* 100 */         return localObject;
-/*     */       case 2:
+/*     */       case 1:
 /* 101 */         localObject = ((List)localObject).add(((List)localObject).head()); break;
 /*     */       default:
 /* 102 */         throw Debug.unexpected(localList);
@@ -117,9 +117,9 @@
 /* 110 */       if (i == 0) return localList;
 /* 111 */       //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)localList.getKind()).ordinal()]) {
                 switch (((Kind)localList.getKind()).ordinal()) {
-                case 1:
+                case 0:
 /* 112 */         throw Debug.illegal(this, "drop", new Object[] { Integer.valueOf(paramInt) });
-/*     */       case 2:
+/*     */       case 1:
 /* 113 */         break;
 /*     */       default:
 /* 114 */         throw Debug.unexpected(localList);
@@ -134,9 +134,9 @@
 /* 121 */     for (List<Type> localList = this; ; i--) {
 /* 122 */       //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)localList.getKind()).ordinal()]) {
                 switch (((Kind)localList.getKind()).ordinal()) {
-                case 1:
+                case 0:
 /* 123 */         throw Debug.illegal(this, "at", new Object[] { Integer.valueOf(paramInt) });
-/*     */       case 2:
+/*     */       case 1:
 /* 124 */         if (i == 0) return localList.head(); break;
 /*     */       default:
 /* 125 */         throw Debug.unexpected(localList);
@@ -162,9 +162,9 @@
 /* 143 */       if (i != 0) localStringBuilder.append(", "); else i = 1;
 /* 144 */       //switch (1.$SwitchMap$pkg$util$List$Kind[((Kind)localList.getKind()).ordinal()]) {
                 switch (((Kind)localList.getKind()).ordinal()) {
-                case 1:
+                case 0:
 /* 145 */         return ")";
-/*     */       case 2:
+/*     */       case 1:
 /* 146 */         localStringBuilder.append(localList.head()); break;
 /*     */       default:
 /* 147 */         throw Debug.unexpected(localList);

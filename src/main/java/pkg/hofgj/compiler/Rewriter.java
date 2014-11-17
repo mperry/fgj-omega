@@ -49,11 +49,11 @@
 /*  56 */     assert (frozen());
 /*  57 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) {
               switch (paramACsTerm.getKind().ordinal()) {
-              case 1:
+              case 0:
 /*  58 */       return rewrite((ACsTerm.Function)paramACsTerm);
-/*     */     case 2:
+/*     */     case 1:
 /*  59 */       return rewrite((ACsTerm.Error)paramACsTerm);
-/*     */     case 3:
+/*     */     case 2:
 /*  60 */       return rewrite((ACsTerm.Delayed)paramACsTerm); }
 /*  61 */     throw new Error("" + paramACsTerm.getKind());
 /*     */   }
@@ -97,17 +97,17 @@
 /* 102 */     assert (frozen());
 /* 103 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) {
               switch (((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()) {
-              case 1:
+              case 0:
 /* 104 */       return rewrite((ATpTerm.Boolean)paramATpTerm);
-/*     */     case 2:
+/*     */     case 1:
 /* 105 */       return rewrite((ATpTerm.Integer)paramATpTerm);
-/*     */     case 3:
+/*     */     case 2:
 /* 106 */       return rewrite((ATpTerm.Concrete)paramATpTerm);
-/*     */     case 4:
+/*     */     case 3:
 /* 107 */       return rewrite((ATpTerm.Abstract)paramATpTerm);
-/*     */     case 5:
+/*     */     case 4:
 /* 108 */       return rewrite((ATpTerm.Error)paramATpTerm);
-/*     */     case 6:
+/*     */     case 5:
 /* 109 */       return rewrite((ATpTerm.Delayed)paramATpTerm); }
 /* 110 */     throw new Error("" + paramATpTerm.getKind());
 /*     */   }
@@ -166,29 +166,29 @@
 /* 167 */     assert (frozen());
 /* 168 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$AVlTerm$Kind[paramAVlTerm.getKind().ordinal()]) {
               switch (paramAVlTerm.getKind().ordinal()) {
-              case 1:
+              case 0:
 /* 169 */       return rewrite((AVlTerm.Boolean)paramAVlTerm);
-/*     */     case 2:
+/*     */     case 1:
 /* 170 */       return rewrite((AVlTerm.Integer)paramAVlTerm);
-/*     */     case 3:
+/*     */     case 2:
 /* 171 */       return rewrite((AVlTerm.This)paramAVlTerm);
-/*     */     case 4:
+/*     */     case 3:
 /* 172 */       return rewrite((AVlTerm.Local)paramAVlTerm);
-/*     */     case 5:
+/*     */     case 4:
 /* 173 */       return rewrite((AVlTerm.Get)paramAVlTerm);
-/*     */     case 6:
+/*     */     case 5:
 /* 174 */       return rewrite((AVlTerm.Call)paramAVlTerm);
-/*     */     case 7:
+/*     */     case 6:
 /* 175 */       return rewrite((AVlTerm.New)paramAVlTerm);
-/*     */     case 8:
+/*     */     case 7:
 /* 176 */       return rewrite((AVlTerm.If)paramAVlTerm);
-/*     */     case 9:
+/*     */     case 8:
 /* 177 */       return rewrite((AVlTerm.Unary)paramAVlTerm);
-/*     */     case 10:
+/*     */     case 9:
 /* 178 */       return rewrite((AVlTerm.Binary)paramAVlTerm);
-/*     */     case 11:
+/*     */     case 10:
 /* 179 */       return rewrite((AVlTerm.Error)paramAVlTerm);
-/*     */     case 12:
+/*     */     case 11:
 /* 180 */       return rewrite((AVlTerm.Delayed)paramAVlTerm); }
 /* 181 */     throw new Error("" + paramAVlTerm.getKind());
 /*     */   }

@@ -30,16 +30,16 @@
 /*      */   {
 /* 2469 */     //switch (1.$SwitchMap$pkg$hofgj$stree$SMember$Kind[paramSMember.getKind().ordinal()]) {
                switch (paramSMember.getKind().ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /* 2471 */       enter(((SMember.Class)paramSMember).clasz);
 /* 2472 */       return;
-/*      */     case 2:
+/*      */     case 1:
 /* 2474 */       enter(((SMember.Field)paramSMember).field);
 /* 2475 */       return;
-/*      */     case 3:
+/*      */     case 2:
 /* 2477 */       enter(((SMember.Method)paramSMember).method);
 /* 2478 */       return;
-/*      */     case 4:
+/*      */     case 3:
 /* 2480 */       enter(((SMember.Constructor)paramSMember).constructor);
 /* 2481 */       return;
 /*      */     }

@@ -135,12 +135,12 @@
 /*      */   {
 /* 1847 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) {
                switch (paramACsTerm.getKind().ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /* 1849 */       ACsTerm.Function localFunction = (ACsTerm.Function)paramACsTerm;
 /* 1850 */       return apply(localFunction.params, paramArrayOfACsTerm, localFunction.body);
-/*      */     case 2:
+/*      */     case 1:
 /* 1853 */       return new ATpTerm.Error();
-/*      */     case 3:
+/*      */     case 2:
 /* 1855 */       return apply(paramACsTerm.evaluate(), paramArrayOfACsTerm);
 /*      */     }
 /* 1857 */     throw new Error("" + paramACsTerm.getKind());
@@ -157,28 +157,28 @@
 /*      */     Object localObject2;
 /* 1868 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()]) {
                switch (((ATpTerm.Kind)paramATpTerm.getKind()).ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /* 1870 */       localObject1 = (ATpTerm.Boolean)paramATpTerm;
 /* 1871 */       return Option.Some(this.compiler.getObjectAsTp());
-/*      */     case 2:
+/*      */     case 1:
 /* 1874 */       localObject1 = (ATpTerm.Integer)paramATpTerm;
 /* 1875 */       return Option.Some(this.compiler.getObjectAsTp());
-/*      */     case 3:
+/*      */     case 2:
 /* 1878 */       localObject1 = (ATpTerm.Concrete)paramATpTerm;
 /* 1879 */       localObject2 = ((ATpTerm.Concrete)localObject1).clasz.getBase();
 /* 1880 */       if (((Option)localObject2).isEmpty()) return Option.None();
 /* 1881 */       ATpTerm localATpTerm = apply(((ATpTerm.Concrete)localObject1).clasz.getParams(), ((ATpTerm.Concrete)localObject1).args, ((AClassBase)((Option)localObject2).get()).getBaseType());
 /*      */ 
 /* 1883 */       return Option.Some(localATpTerm);
-/*      */     case 4:
+/*      */     case 3:
 /* 1886 */       localObject1 = (ATpTerm.Abstract)paramATpTerm;
 /* 1887 */       localObject2 = apply(((ATpTerm.Abstract)localObject1).param.getParams(), ((ATpTerm.Abstract)localObject1).args, ((ATpTerm.Abstract)localObject1).param.getBound());
 /*      */ 
 /* 1889 */       return Option.<ATpTerm>Some((ATpTerm)localObject2);
-/*      */     case 5:
+/*      */     case 4:
 /* 1892 */       localObject1 = (ATpTerm.Error)paramATpTerm;
 /* 1893 */       return Option.None();
-/*      */     case 6:
+/*      */     case 5:
 /* 1896 */       localObject1 = (ATpTerm.Delayed)paramATpTerm;
 /* 1897 */       return getUpperBound((ATpTerm)((ATpTerm.Delayed)localObject1).promise.force());
 /*      */     }
@@ -238,7 +238,7 @@
 /*      */ 
 /* 1964 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()]) {
                switch (((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /* 1966 */       ATpTerm localObject1 = (ATpTerm.Boolean)paramATpTerm2;
 /* 1967 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*      */       case BOOLEAN:
@@ -247,7 +247,7 @@
 /*      */       }
 /*      */ 
 /* 1973 */       break;
-/*      */     case 2:
+/*      */     case 1:
 /* 1977 */       localObject1 = (ATpTerm.Integer)paramATpTerm2;
 /* 1978 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*      */       case INTEGER:
@@ -256,7 +256,7 @@
 /*      */       }
 /*      */ 
 /* 1984 */       break;
-/*      */     case 3:
+/*      */     case 2:
 /* 1988 */       localObject1 = (ATpTerm.Concrete)paramATpTerm2;
 /* 1989 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*      */       case CONCRETE:
@@ -267,7 +267,7 @@
 /*      */         break;
 /*      */       }
 /* 1997 */       break;
-/*      */     case 4:
+/*      */     case 3:
 /* 2001 */       localObject1 = (ATpTerm.Abstract)paramATpTerm2;
 /* 2002 */       switch ((ATpTerm.Kind)paramATpTerm1.getKind()) {
 /*      */       case ABSTRACT:
@@ -333,78 +333,78 @@
 /*      */     Object localObject2;
 /* 2110 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm1.getKind()).ordinal()]) {
                switch (((ATpTerm.Kind)paramATpTerm1.getKind()).ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /* 2112 */       localObject1 = (ATpTerm.Boolean)paramATpTerm1;
 /* 2113 */       //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()]) {
                  switch (((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()) {
-/*      */       case 1:
+/*      */       case 0:
 /* 2115 */         localObject2 = (ATpTerm.Boolean)paramATpTerm2;
 /* 2116 */         return true;
-/*      */       case 2:
+/*      */       case 1:
 /* 2119 */         localObject2 = (ATpTerm.Integer)paramATpTerm2;
 /* 2120 */         return false;
-/*      */       case 3:
+/*      */       case 2:
 /* 2123 */         localObject2 = (ATpTerm.Concrete)paramATpTerm2;
 /* 2124 */         return false;
-/*      */       case 4:
+/*      */       case 3:
 /* 2127 */         localObject2 = (ATpTerm.Abstract)paramATpTerm2;
 /* 2128 */         return false;
 /*      */       }
 /*      */ 
 /* 2131 */       throw new Error("" + paramATpTerm2.getKind());
-/*      */     case 2:
+/*      */     case 1:
 /* 2135 */       localObject1 = (ATpTerm.Integer)paramATpTerm1;
 /* 2136 */       //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()]) {
                  switch (((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()) {
-/*      */       case 1:
+/*      */       case 0:
 /* 2138 */         localObject2 = (ATpTerm.Boolean)paramATpTerm2;
 /* 2139 */         return false;
-/*      */       case 2:
+/*      */       case 1:
 /* 2142 */         localObject2 = (ATpTerm.Integer)paramATpTerm2;
 /* 2143 */         return true;
-/*      */       case 3:
+/*      */       case 2:
 /* 2146 */         localObject2 = (ATpTerm.Concrete)paramATpTerm2;
 /* 2147 */         return false;
-/*      */       case 4:
+/*      */       case 3:
 /* 2150 */         localObject2 = (ATpTerm.Abstract)paramATpTerm2;
 /* 2151 */         return false;
 /*      */       }
 /*      */ 
 /* 2154 */       throw new Error("" + paramATpTerm2.getKind());
-/*      */     case 3:
+/*      */     case 2:
 /* 2158 */       localObject1 = (ATpTerm.Concrete)paramATpTerm1;
 /* 2159 */       //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()]) {
                  switch (((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()) {
-/*      */       case 1:
+/*      */       case 0:
 /* 2161 */         localObject2 = (ATpTerm.Boolean)paramATpTerm2;
 /* 2162 */         return false;
-/*      */       case 2:
+/*      */       case 1:
 /* 2165 */         localObject2 = (ATpTerm.Integer)paramATpTerm2;
 /* 2166 */         return false;
-/*      */       case 3:
+/*      */       case 2:
 /* 2169 */         localObject2 = (ATpTerm.Concrete)paramATpTerm2;
 /* 2170 */         if (((ATpTerm.Concrete)localObject1).clasz != ((ATpTerm.Concrete)localObject2).clasz) return false;
 /* 2171 */         return test(((ATpTerm.Concrete)localObject1).args, ((ATpTerm.Concrete)localObject2).args, paramBoolean);
-/*      */       case 4:
+/*      */       case 3:
 /* 2174 */         localObject2 = (ATpTerm.Abstract)paramATpTerm2;
 /* 2175 */         return false;
 /*      */       }
 /*      */ 
 /* 2178 */       throw new Error("" + paramATpTerm2.getKind());
-/*      */     case 4:
+/*      */     case 3:
 /* 2182 */       localObject1 = (ATpTerm.Abstract)paramATpTerm1;
 /* 2183 */       //switch (1.$SwitchMap$pkg$hofgj$compiler$ATpTerm$Kind[((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()]) {
                  switch (((ATpTerm.Kind)paramATpTerm2.getKind()).ordinal()) {
-/*      */       case 1:
+/*      */       case 0:
 /* 2185 */         localObject2 = (ATpTerm.Boolean)paramATpTerm2;
 /* 2186 */         return true;
-/*      */       case 2:
+/*      */       case 1:
 /* 2189 */         localObject2 = (ATpTerm.Integer)paramATpTerm2;
 /* 2190 */         return false;
-/*      */       case 3:
+/*      */       case 2:
 /* 2193 */         localObject2 = (ATpTerm.Concrete)paramATpTerm2;
 /* 2194 */         return false;
-/*      */       case 4:
+/*      */       case 3:
 /* 2197 */         localObject2 = (ATpTerm.Abstract)paramATpTerm2;
 /* 2198 */         return test((ATpTerm.Abstract)localObject1, (ATpTerm.Abstract)localObject2, paramBoolean);
 /*      */       }
@@ -479,11 +479,11 @@
 /*      */   private boolean arity(ATpParam paramATpParam, ACsTerm paramACsTerm, boolean paramBoolean) {
 /* 2292 */     //switch (1.$SwitchMap$pkg$hofgj$compiler$ACsTerm$Kind[paramACsTerm.getKind().ordinal()]) {
                switch (paramACsTerm.getKind().ordinal()) {
-               case 1:
+               case 0:
 /* 2293 */       return arity(paramATpParam, (ACsTerm.Function)paramACsTerm);
-/*      */     case 2:
+/*      */     case 1:
 /* 2294 */       return paramBoolean;
-/*      */     case 3:
+/*      */     case 2:
 /* 2295 */       return arity(paramATpParam, paramACsTerm.evaluate(), paramBoolean); }
 /* 2296 */     throw new Error("" + paramACsTerm.getKind());
 /*      */   }

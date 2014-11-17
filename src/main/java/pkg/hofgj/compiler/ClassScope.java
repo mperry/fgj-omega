@@ -128,16 +128,16 @@
 /* 2727 */     assert (!this.frozen) : this;
 /* 2728 */     //switch (1.$SwitchMap$pkg$hofgj$stree$SMember$Kind[paramSMember.getKind().ordinal()]) {
                switch (paramSMember.getKind().ordinal()) {
-/*      */     case 1:
+/*      */     case 0:
 /* 2730 */       enter(((SMember.Class)paramSMember).clasz);
 /* 2731 */       return;
-/*      */     case 2:
+/*      */     case 1:
 /* 2733 */       enter(((SMember.Field)paramSMember).field);
 /* 2734 */       return;
-/*      */     case 3:
+/*      */     case 2:
 /* 2736 */       enter(((SMember.Method)paramSMember).method);
 /* 2737 */       return;
-/*      */     case 4:
+/*      */     case 3:
 /* 2739 */       enter(((SMember.Constructor)paramSMember).constructor);
 /* 2740 */       return;
 /*      */     }
